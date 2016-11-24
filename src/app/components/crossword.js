@@ -23,12 +23,18 @@ export default class Crossword extends Component {
     render () {
         return (
             <div id="crossword">
-                <ClueBar currentClue={this.state.currentClue}/>
-                <Board
-                    board={this.props.board}
-                    currentClue={this.state.currentClue}
-                    updateClue={this.updateClue}
-                />
+                <div id="clue-bar-board-wrapper">
+                    <ClueBar
+                        currentClue={this.state.currentClue}
+                        board={this.props.board}
+                    />
+
+                    <Board
+                        board={this.props.board}
+                        currentClue={this.state.currentClue}
+                        updateClue={this.updateClue}
+                    />
+                </div>
             </div>
         );
     }
