@@ -1,0 +1,60 @@
+
+#board
+    height 500px
+    width 500px
+    cursor default
+    border-collapse collapse
+    box-sizing border-box
+    display table
+
+    .board-row
+        margin 0
+        padding 0
+        display table-row
+
+        .board-cell
+            width 31px
+            height 31px
+            font-size 18px
+            margin 0
+            text-align center
+            border 1px solid black
+            display table-cell
+
+            &:first-child
+                border-left none
+
+            &:last-child
+                border-right none
+
+            &.answer-start
+                background-color #ddd
+
+        &:first-child
+            .board-cell
+                border-top 0
+
+        &:last-child
+            .board-cell
+                border-bottom none
+
+        div.cell-content
+            display flex
+            align-items center
+            justify-content center
+            height 100%
+            position relative
+
+            &.block
+                background-color black
+
+            &.selected
+                background-color red
+
+            .clue-number
+                position absolute
+                font-size 9px
+                line-height 100%
+                top 0
+                left 0
+                padding 5% 5% 0

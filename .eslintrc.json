@@ -1,0 +1,44 @@
+{
+    "root": true,
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "jasmine": true
+    },
+    "extends": [
+        "xo/esnext",
+        "xo-react"
+    ],
+    "rules": {
+        "key-spacing": ["error", {
+            "align": "colon"
+        }],
+        "indent": ["error", 4],
+        "no-debugger": "warn",
+        "no-multi-spaces": ["error", {
+            "exceptions": {
+                "VariableDeclarator": true,
+                "LogicalExpression": true,
+                "BinaryExpression": true
+            }
+        }],
+        "no-multiple-empty-lines": ["error", {
+            "max"    : 2,
+            "maxEOF" : 1,
+            "maxBOF" : 1
+        }],
+        "no-unused-expressions": ["error", {
+            "allowShortCircuit": true
+        }],
+        "object-curly-spacing": ["error", "always", {
+            "arraysInObjects"  : false,
+            "objectsInObjects" : false
+        }],
+        "one-var": "off",
+        "operator-linebreak": ["error", "before"],
+        "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "space-before-function-paren": ["error", "always"]
+    }
+}
