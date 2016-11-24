@@ -1,14 +1,14 @@
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 
 export default class Cell extends Component {
     static propTypes = {
-        data         : React.PropTypes.object.isRequired,
-        clicked      : React.PropTypes.func.isRequired,
-        isCurrentCell: React.PropTypes.bool.isRequired,
-        currentClue  : React.PropTypes.number,
-        clueDirection: React.PropTypes.string
+        data         : PropTypes.object.isRequired,
+        clicked      : PropTypes.func.isRequired,
+        isCurrentCell: PropTypes.bool.isRequired,
+        currentClue  : PropTypes.number,
+        clueDirection: PropTypes.string
     }
 
     render () {

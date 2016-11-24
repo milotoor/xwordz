@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Board, ClueBar } from '.';
 
 import './crossword.styl';
@@ -7,7 +7,7 @@ import './crossword.styl';
 
 export default class Crossword extends Component {
     static propTypes = {
-        board: React.PropTypes.object.isRequired
+        board: PropTypes.object.isRequired
     }
 
     constructor () {

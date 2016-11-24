@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Card, Grid, Cell } from 'react-mdl';
 import map from 'lodash/map';
 
@@ -9,8 +9,8 @@ import './board.styl';
 
 export default class Board extends Component {
     static propTypes = {
-        board     : React.PropTypes.object.isRequired,
-        updateClue: react.PropTypes.func.isRequired
+        board     : PropTypes.object.isRequired,
+        updateClue: PropTypes.func.isRequired
     }
 
     constructor () {
