@@ -1,4 +1,5 @@
 
-import Board from './board';
+export { default as Cell } from './Cell';
+
+import Board from './Board';
 export default Board;
-export { default as Cell } from './cell';

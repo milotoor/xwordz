@@ -2,8 +2,8 @@
 import React, { PropTypes } from 'react';
 import { Card } from 'react-mdl';
 
-import Colors from '../../util/colors';
-import './clueBar.styl';
+import Colors from '../../../util/colors';
+import './ClueBar.styl';
 
 
 /**

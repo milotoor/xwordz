@@ -1,8 +1,8 @@
 
 import React, { Component, PropTypes } from 'react';
-import { Board, ClueBar } from '.';
+import { Board, ClueBar } from '..';
 
-import './crossword.styl';
+import './Crossword.styl';
 
 
 export default class Crossword extends Component {

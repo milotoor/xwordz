@@ -3,8 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import { Card, Grid, Cell } from 'react-mdl';
 import map from 'lodash/map';
 
-import BoardCell from './cell';
-import './board.styl';
+import BoardCell from './Cell';
+import './Board.styl';
 
 
 export default class Board extends Component {
@@ -14,10 +14,10 @@ export default class Board extends Component {
         updateClue : PropTypes.func.isRequired
     }
 
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
         this.state = {
-            currentCell: null
+            currentCell: props.board.grid[0][0]
         };
     }
 
