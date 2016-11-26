@@ -1,6 +1,6 @@
 
 import React, { Component, PropTypes } from 'react';
-import { Board, ClueBar } from '.';
+import { Board, ClueBar, ClueDirectory } from '.';
 
 import './Crossword.styl';
 
@@ -23,7 +23,7 @@ export default class Crossword extends Component {
     render () {
         return (
             <div id="crossword">
-                <div id="clue-bar-board-wrapper">
+                <div ref={c => this.boardWrapper = c} id="clue-bar-board-wrapper">
                     <ClueBar
                         currentClue={this.state.currentClue}
                         board={this.props.board}
@@ -35,6 +35,11 @@ export default class Crossword extends Component {
                         updateClue={this.updateClue}
                     />
                 </div>
+
+                <ClueDirectory
+                    currentClue={this.state.currentClue}
+                    board={this.props.board}
+                />
             </div>
         );
     }
