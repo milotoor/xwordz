@@ -35,7 +35,7 @@ module.exports = {
                 loaders: [
                     'style',
                     'css',
-                    'stylus'
+                    'stylus?paths=node_modules'
                 ]
             },
             {
