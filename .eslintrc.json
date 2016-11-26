@@ -13,7 +13,9 @@
         "key-spacing": ["error", {
             "align": "colon"
         }],
-        "indent": ["error", 4],
+        "indent": ["error", 4, {
+            "SwitchCase": 1
+        }],
         "no-debugger": "warn",
         "no-multi-spaces": ["error", {
             "exceptions": {
@@ -27,6 +29,7 @@
             "maxEOF" : 1,
             "maxBOF" : 1
         }],
+        "no-return-assign": 0,
         "no-unused-expressions": ["error", {
             "allowShortCircuit": true
         }],
@@ -39,6 +42,9 @@
         "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4],
+        "react/jsx-no-bind": ["error", {
+            "ignoreRefs": true
+        }],
         "space-before-function-paren": ["error", "always"]
     }
 }
