@@ -1,0 +1,1858 @@
+{
+    "grid": [
+        [
+            {
+                "solution": "W",
+                "clueNumber": 1,
+                "containingClues": {
+                    "across": 1,
+                    "down": 1
+                }
+            },
+            {
+                "solution": "H",
+                "clueNumber": 2,
+                "containingClues": {
+                    "down": 2,
+                    "across": 1
+                }
+            },
+            {
+                "solution": "A",
+                "clueNumber": 3,
+                "containingClues": {
+                    "down": 3,
+                    "across": 1
+                }
+            },
+            {
+                "solution": "T",
+                "clueNumber": 4,
+                "containingClues": {
+                    "down": 4,
+                    "across": 1
+                }
+            },
+            {
+                "solution": "S",
+                "clueNumber": 5,
+                "containingClues": {
+                    "down": 5,
+                    "across": 1
+                }
+            },
+            {
+                "solution": "A",
+                "clueNumber": 6,
+                "containingClues": {
+                    "down": 6,
+                    "across": 1
+                }
+            },
+            {
+                "solution": "P",
+                "clueNumber": 7,
+                "containingClues": {
+                    "down": 7,
+                    "across": 1
+                }
+            },
+            {
+                "solution": "P",
+                "clueNumber": 8,
+                "containingClues": {
+                    "down": 8,
+                    "across": 1
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "I",
+                "clueNumber": 9,
+                "containingClues": {
+                    "across": 9,
+                    "down": 9
+                }
+            },
+            {
+                "solution": "C",
+                "clueNumber": 10,
+                "containingClues": {
+                    "down": 10,
+                    "across": 9
+                }
+            },
+            {
+                "solution": "E",
+                "clueNumber": 11,
+                "containingClues": {
+                    "down": 11,
+                    "across": 9
+                }
+            },
+            {
+                "solution": "D",
+                "clueNumber": 12,
+                "containingClues": {
+                    "down": 12,
+                    "across": 9
+                }
+            }
+        ],
+        [
+            {
+                "solution": "A",
+                "clueNumber": 13,
+                "containingClues": {
+                    "across": 13,
+                    "down": 1
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 13,
+                    "down": 2
+                }
+            },
+            {
+                "solution": "R",
+                "containingClues": {
+                    "across": 13,
+                    "down": 3
+                }
+            },
+            {
+                "solution": "O",
+                "containingClues": {
+                    "across": 13,
+                    "down": 4
+                }
+            },
+            {
+                "solution": "N",
+                "containingClues": {
+                    "across": 13,
+                    "down": 5
+                }
+            },
+            {
+                "solution": "B",
+                "containingClues": {
+                    "across": 13,
+                    "down": 6
+                }
+            },
+            {
+                "solution": "U",
+                "containingClues": {
+                    "across": 13,
+                    "down": 7
+                }
+            },
+            {
+                "solution": "R",
+                "containingClues": {
+                    "across": 13,
+                    "down": 8
+                }
+            },
+            {
+                "solution": "R",
+                "clueNumber": 14,
+                "containingClues": {
+                    "down": 14,
+                    "across": 13
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "M",
+                "clueNumber": 15,
+                "containingClues": {
+                    "across": 15,
+                    "down": 9
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 15,
+                    "down": 10
+                }
+            },
+            {
+                "solution": "G",
+                "containingClues": {
+                    "across": 15,
+                    "down": 11
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 15,
+                    "down": 12
+                }
+            }
+        ],
+        [
+            {
+                "solution": "T",
+                "clueNumber": 16,
+                "containingClues": {
+                    "across": 16,
+                    "down": 1
+                }
+            },
+            {
+                "solution": "H",
+                "containingClues": {
+                    "across": 16,
+                    "down": 2
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 16,
+                    "down": 3
+                }
+            },
+            {
+                "solution": "M",
+                "containingClues": {
+                    "across": 16,
+                    "down": 4
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 16,
+                    "down": 5
+                }
+            },
+            {
+                "solution": "R",
+                "containingClues": {
+                    "across": 16,
+                    "down": 6
+                }
+            },
+            {
+                "solution": "T",
+                "containingClues": {
+                    "across": 16,
+                    "down": 7
+                }
+            },
+            {
+                "solution": "I",
+                "containingClues": {
+                    "across": 16,
+                    "down": 8
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 16,
+                    "down": 14
+                }
+            },
+            {
+                "solution": "N",
+                "clueNumber": 17,
+                "containingClues": {
+                    "down": 17,
+                    "across": 16
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "I",
+                "clueNumber": 18,
+                "containingClues": {
+                    "across": 18,
+                    "down": 9
+                }
+            },
+            {
+                "solution": "R",
+                "containingClues": {
+                    "across": 18,
+                    "down": 10
+                }
+            },
+            {
+                "solution": "O",
+                "containingClues": {
+                    "across": 18,
+                    "down": 11
+                }
+            },
+            {
+                "solution": "N",
+                "containingClues": {
+                    "across": 18,
+                    "down": 12
+                }
+            }
+        ],
+        [
+            {
+                "solution": "S",
+                "clueNumber": 19,
+                "containingClues": {
+                    "across": 19,
+                    "down": 1
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 19,
+                    "down": 2
+                }
+            },
+            {
+                "solution": "N",
+                "containingClues": {
+                    "across": 19,
+                    "down": 3
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "P",
+                "clueNumber": 20,
+                "containingClues": {
+                    "across": 20,
+                    "down": 5
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 20,
+                    "down": 6
+                }
+            },
+            {
+                "solution": "N",
+                "containingClues": {
+                    "across": 20,
+                    "down": 7
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 20,
+                    "down": 8
+                }
+            },
+            {
+                "solution": "R",
+                "containingClues": {
+                    "across": 20,
+                    "down": 14
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 20,
+                    "down": 17
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "N",
+                "clueNumber": 21,
+                "containingClues": {
+                    "across": 21,
+                    "down": 9
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 21,
+                    "down": 10
+                }
+            },
+            {
+                "solution": "S",
+                "containingClues": {
+                    "across": 21,
+                    "down": 11
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 21,
+                    "down": 12
+                }
+            }
+        ],
+        [
+            {
+                "solution": "O",
+                "clueNumber": 22,
+                "containingClues": {
+                    "across": 22,
+                    "down": 1
+                }
+            },
+            {
+                "solution": "H",
+                "containingClues": {
+                    "across": 22,
+                    "down": 2
+                }
+            },
+            {
+                "solution": "O",
+                "containingClues": {
+                    "across": 22,
+                    "down": 3
+                }
+            },
+            {
+                "solution": "H",
+                "clueNumber": 23,
+                "containingClues": {
+                    "down": 23,
+                    "across": 22
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "M",
+                "clueNumber": 24,
+                "containingClues": {
+                    "across": 24,
+                    "down": 6
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 24,
+                    "down": 7
+                }
+            },
+            {
+                "solution": "D",
+                "containingClues": {
+                    "across": 24,
+                    "down": 8
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 24,
+                    "down": 14
+                }
+            },
+            {
+                "solution": "I",
+                "containingClues": {
+                    "across": 24,
+                    "down": 17
+                }
+            },
+            {
+                "solution": "T",
+                "clueNumber": 25,
+                "containingClues": {
+                    "down": 25,
+                    "across": 24
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "M",
+                "clueNumber": 26,
+                "containingClues": {
+                    "across": 26,
+                    "down": 10
+                }
+            },
+            {
+                "solution": "U",
+                "containingClues": {
+                    "across": 26,
+                    "down": 11
+                }
+            },
+            {
+                "solution": "D",
+                "containingClues": {
+                    "across": 26,
+                    "down": 12
+                }
+            }
+        ],
+        [
+            {
+                "solution": "N",
+                "clueNumber": 27,
+                "containingClues": {
+                    "across": 27,
+                    "down": 1
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 27,
+                    "down": 2
+                }
+            },
+            {
+                "solution": "T",
+                "containingClues": {
+                    "across": 27,
+                    "down": 3
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 27,
+                    "down": 23
+                }
+            },
+            {
+                "solution": "L",
+                "clueNumber": 28,
+                "containingClues": {
+                    "down": 28,
+                    "across": 27
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "M",
+                "clueNumber": 29,
+                "containingClues": {
+                    "across": 29,
+                    "down": 7
+                }
+            },
+            {
+                "solution": "U",
+                "containingClues": {
+                    "across": 29,
+                    "down": 8
+                }
+            },
+            {
+                "solution": "S",
+                "containingClues": {
+                    "across": 29,
+                    "down": 14
+                }
+            },
+            {
+                "solution": "L",
+                "containingClues": {
+                    "across": 29,
+                    "down": 17
+                }
+            },
+            {
+                "solution": "I",
+                "containingClues": {
+                    "across": 29,
+                    "down": 25
+                }
+            },
+            {
+                "solution": "M",
+                "clueNumber": 30,
+                "containingClues": {
+                    "down": 30,
+                    "across": 29
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 29,
+                    "down": 10
+                }
+            },
+            {
+                "solution": "R",
+                "containingClues": {
+                    "across": 29,
+                    "down": 11
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 29,
+                    "down": 12
+                }
+            }
+        ],
+        [
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "R",
+                "clueNumber": 31,
+                "containingClues": {
+                    "across": 31,
+                    "down": 23
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 31,
+                    "down": 28
+                }
+            },
+            {
+                "solution": "W",
+                "clueNumber": 32,
+                "containingClues": {
+                    "down": 32,
+                    "across": 31
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "P",
+                "clueNumber": 33,
+                "containingClues": {
+                    "across": 33,
+                    "down": 8
+                }
+            },
+            {
+                "solution": "U",
+                "containingClues": {
+                    "across": 33,
+                    "down": 14
+                }
+            },
+            {
+                "solution": "B",
+                "containingClues": {
+                    "across": 33,
+                    "down": 17
+                }
+            },
+            {
+                "solution": "G",
+                "containingClues": {
+                    "across": 33,
+                    "down": 25
+                }
+            },
+            {
+                "solution": "O",
+                "containingClues": {
+                    "across": 33,
+                    "down": 30
+                }
+            },
+            {
+                "solution": "L",
+                "containingClues": {
+                    "across": 33,
+                    "down": 10
+                }
+            },
+            {
+                "solution": "F",
+                "containingClues": {
+                    "across": 33,
+                    "down": 11
+                }
+            },
+            {
+                "isBlockCell": true
+            }
+        ],
+        [
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "R",
+                "clueNumber": 34,
+                "containingClues": {
+                    "across": 34,
+                    "down": 34
+                }
+            },
+            {
+                "solution": "O",
+                "containingClues": {
+                    "across": 34,
+                    "down": 23
+                }
+            },
+            {
+                "solution": "M",
+                "containingClues": {
+                    "across": 34,
+                    "down": 28
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 34,
+                    "down": 32
+                }
+            },
+            {
+                "solution": "N",
+                "clueNumber": 35,
+                "containingClues": {
+                    "down": 35,
+                    "across": 34
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "P",
+                "clueNumber": 36,
+                "containingClues": {
+                    "across": 36,
+                    "down": 14
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 36,
+                    "down": 17
+                }
+            },
+            {
+                "solution": "R",
+                "containingClues": {
+                    "across": 36,
+                    "down": 25
+                }
+            },
+            {
+                "solution": "M",
+                "containingClues": {
+                    "across": 36,
+                    "down": 30
+                }
+            },
+            {
+                "solution": "S",
+                "containingClues": {
+                    "across": 36,
+                    "down": 10
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            }
+        ],
+        [
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "C",
+                "clueNumber": 37,
+                "containingClues": {
+                    "across": 37,
+                    "down": 37
+                }
+            },
+            {
+                "solution": "U",
+                "containingClues": {
+                    "across": 37,
+                    "down": 34
+                }
+            },
+            {
+                "solution": "L",
+                "containingClues": {
+                    "across": 37,
+                    "down": 23
+                }
+            },
+            {
+                "solution": "P",
+                "containingClues": {
+                    "across": 37,
+                    "down": 28
+                }
+            },
+            {
+                "solution": "R",
+                "containingClues": {
+                    "across": 37,
+                    "down": 32
+                }
+            },
+            {
+                "solution": "I",
+                "containingClues": {
+                    "across": 37,
+                    "down": 35
+                }
+            },
+            {
+                "solution": "T",
+                "clueNumber": 38,
+                "containingClues": {
+                    "down": 38,
+                    "across": 37
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "D",
+                "clueNumber": 39,
+                "containingClues": {
+                    "across": 39,
+                    "down": 17
+                }
+            },
+            {
+                "solution": "I",
+                "containingClues": {
+                    "across": 39,
+                    "down": 25
+                }
+            },
+            {
+                "solution": "M",
+                "containingClues": {
+                    "across": 39,
+                    "down": 30
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            }
+        ],
+        [
+            {
+                "solution": "H",
+                "clueNumber": 40,
+                "containingClues": {
+                    "across": 40,
+                    "down": 40
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 40,
+                    "down": 37
+                }
+            },
+            {
+                "solution": "R",
+                "containingClues": {
+                    "across": 40,
+                    "down": 34
+                }
+            },
+            {
+                "solution": "D",
+                "containingClues": {
+                    "across": 40,
+                    "down": 23
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 40,
+                    "down": 28
+                }
+            },
+            {
+                "solution": "D",
+                "containingClues": {
+                    "across": 40,
+                    "down": 32
+                }
+            },
+            {
+                "solution": "G",
+                "containingClues": {
+                    "across": 40,
+                    "down": 35
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 40,
+                    "down": 38
+                }
+            },
+            {
+                "solution": "D",
+                "clueNumber": 41,
+                "containingClues": {
+                    "down": 41,
+                    "across": 40
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "S",
+                "clueNumber": 42,
+                "containingClues": {
+                    "across": 42,
+                    "down": 25
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 42,
+                    "down": 30
+                }
+            },
+            {
+                "solution": "L",
+                "clueNumber": 43,
+                "containingClues": {
+                    "down": 43,
+                    "across": 42
+                }
+            },
+            {
+                "solution": "A",
+                "clueNumber": 44,
+                "containingClues": {
+                    "down": 44,
+                    "across": 42
+                }
+            },
+            {
+                "solution": "D",
+                "clueNumber": 45,
+                "containingClues": {
+                    "down": 45,
+                    "across": 42
+                }
+            }
+        ],
+        [
+            {
+                "solution": "A",
+                "clueNumber": 46,
+                "containingClues": {
+                    "across": 46,
+                    "down": 40
+                }
+            },
+            {
+                "solution": "K",
+                "containingClues": {
+                    "across": 46,
+                    "down": 37
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 46,
+                    "down": 34
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "D",
+                "clueNumber": 47,
+                "containingClues": {
+                    "across": 47,
+                    "down": 28
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 47,
+                    "down": 32
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 47,
+                    "down": 35
+                }
+            },
+            {
+                "solution": "R",
+                "containingClues": {
+                    "across": 47,
+                    "down": 38
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 47,
+                    "down": 41
+                }
+            },
+            {
+                "solution": "S",
+                "clueNumber": 48,
+                "containingClues": {
+                    "down": 48,
+                    "across": 47
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "S",
+                "clueNumber": 49,
+                "containingClues": {
+                    "across": 49,
+                    "down": 30
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 49,
+                    "down": 43
+                }
+            },
+            {
+                "solution": "T",
+                "containingClues": {
+                    "across": 49,
+                    "down": 44
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 49,
+                    "down": 45
+                }
+            }
+        ],
+        [
+            {
+                "solution": "V",
+                "clueNumber": 50,
+                "containingClues": {
+                    "across": 50,
+                    "down": 40
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 50,
+                    "down": 37
+                }
+            },
+            {
+                "solution": "L",
+                "containingClues": {
+                    "across": 50,
+                    "down": 34
+                }
+            },
+            {
+                "solution": "O",
+                "clueNumber": 51,
+                "containingClues": {
+                    "down": 51,
+                    "across": 50
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "B",
+                "clueNumber": 52,
+                "containingClues": {
+                    "across": 52,
+                    "down": 32
+                }
+            },
+            {
+                "solution": "R",
+                "containingClues": {
+                    "across": 52,
+                    "down": 35
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 52,
+                    "down": 38
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 52,
+                    "down": 41
+                }
+            },
+            {
+                "solution": "T",
+                "containingClues": {
+                    "across": 52,
+                    "down": 48
+                }
+            },
+            {
+                "solution": "H",
+                "clueNumber": 53,
+                "containingClues": {
+                    "down": 53,
+                    "across": 52
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "S",
+                "clueNumber": 54,
+                "containingClues": {
+                    "across": 54,
+                    "down": 43
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 54,
+                    "down": 44
+                }
+            },
+            {
+                "solution": "N",
+                "containingClues": {
+                    "across": 54,
+                    "down": 45
+                }
+            }
+        ],
+        [
+            {
+                "solution": "E",
+                "clueNumber": 55,
+                "containingClues": {
+                    "across": 55,
+                    "down": 40
+                }
+            },
+            {
+                "solution": "P",
+                "containingClues": {
+                    "across": 55,
+                    "down": 37
+                }
+            },
+            {
+                "solution": "I",
+                "containingClues": {
+                    "across": 55,
+                    "down": 34
+                }
+            },
+            {
+                "solution": "C",
+                "containingClues": {
+                    "across": 55,
+                    "down": 51
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "T",
+                "clueNumber": 56,
+                "containingClues": {
+                    "across": 56,
+                    "down": 32
+                }
+            },
+            {
+                "solution": "I",
+                "containingClues": {
+                    "across": 56,
+                    "down": 35
+                }
+            },
+            {
+                "solution": "N",
+                "containingClues": {
+                    "across": 56,
+                    "down": 38
+                }
+            },
+            {
+                "solution": "F",
+                "containingClues": {
+                    "across": 56,
+                    "down": 41
+                }
+            },
+            {
+                "solution": "O",
+                "containingClues": {
+                    "across": 56,
+                    "down": 48
+                }
+            },
+            {
+                "solution": "I",
+                "containingClues": {
+                    "across": 56,
+                    "down": 53
+                }
+            },
+            {
+                "solution": "L",
+                "clueNumber": 57,
+                "containingClues": {
+                    "down": 57,
+                    "across": 56
+                }
+            },
+            {
+                "solution": "H",
+                "containingClues": {
+                    "across": 56,
+                    "down": 43
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 56,
+                    "down": 44
+                }
+            },
+            {
+                "solution": "T",
+                "containingClues": {
+                    "across": 56,
+                    "down": 45
+                }
+            }
+        ],
+        [
+            {
+                "solution": "T",
+                "clueNumber": 58,
+                "containingClues": {
+                    "across": 58,
+                    "down": 40
+                }
+            },
+            {
+                "solution": "O",
+                "containingClues": {
+                    "across": 58,
+                    "down": 37
+                }
+            },
+            {
+                "solution": "S",
+                "containingClues": {
+                    "across": 58,
+                    "down": 34
+                }
+            },
+            {
+                "solution": "H",
+                "containingClues": {
+                    "across": 58,
+                    "down": 51
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "A",
+                "clueNumber": 59,
+                "containingClues": {
+                    "across": 59,
+                    "down": 35
+                }
+            },
+            {
+                "solution": "C",
+                "containingClues": {
+                    "across": 59,
+                    "down": 38
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 59,
+                    "down": 41
+                }
+            },
+            {
+                "solution": "O",
+                "containingClues": {
+                    "across": 59,
+                    "down": 48
+                }
+            },
+            {
+                "solution": "F",
+                "containingClues": {
+                    "across": 59,
+                    "down": 53
+                }
+            },
+            {
+                "solution": "B",
+                "containingClues": {
+                    "across": 59,
+                    "down": 57
+                }
+            },
+            {
+                "solution": "A",
+                "containingClues": {
+                    "across": 59,
+                    "down": 43
+                }
+            },
+            {
+                "solution": "S",
+                "containingClues": {
+                    "across": 59,
+                    "down": 44
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 59,
+                    "down": 45
+                }
+            }
+        ],
+        [
+            {
+                "solution": "O",
+                "clueNumber": 60,
+                "containingClues": {
+                    "across": 60,
+                    "down": 40
+                }
+            },
+            {
+                "solution": "P",
+                "containingClues": {
+                    "across": 60,
+                    "down": 37
+                }
+            },
+            {
+                "solution": "T",
+                "containingClues": {
+                    "across": 60,
+                    "down": 34
+                }
+            },
+            {
+                "solution": "S",
+                "containingClues": {
+                    "across": 60,
+                    "down": 51
+                }
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "isBlockCell": true
+            },
+            {
+                "solution": "E",
+                "clueNumber": 61,
+                "containingClues": {
+                    "across": 61,
+                    "down": 38
+                }
+            },
+            {
+                "solution": "N",
+                "containingClues": {
+                    "across": 61,
+                    "down": 41
+                }
+            },
+            {
+                "solution": "L",
+                "containingClues": {
+                    "across": 61,
+                    "down": 48
+                }
+            },
+            {
+                "solution": "I",
+                "containingClues": {
+                    "across": 61,
+                    "down": 53
+                }
+            },
+            {
+                "solution": "S",
+                "containingClues": {
+                    "across": 61,
+                    "down": 57
+                }
+            },
+            {
+                "solution": "T",
+                "containingClues": {
+                    "across": 61,
+                    "down": 43
+                }
+            },
+            {
+                "solution": "E",
+                "containingClues": {
+                    "across": 61,
+                    "down": 44
+                }
+            },
+            {
+                "solution": "D",
+                "containingClues": {
+                    "across": 61,
+                    "down": 45
+                }
+            }
+        ]
+    ],
+    "clues": {
+        "across": {
+            "1": "Facebook acquired it in 2014 for $19.3 billion",
+            "9": "Coffee shop menu adjective",
+            "13": "Narrator of Broadway's \"Hamilton\"",
+            "15": "Dungeons & Dragons class",
+            "16": "Sci-fi hit whose tagline is \"Bring him home\"",
+            "18": "Core component",
+            "19": "Japanese honorific",
+            "20": "Subway alternative",
+            "21": "Org. featured in 16-Across",
+            "22": "\"Pick me! Pick me!\"",
+            "24": "Hit the big time",
+            "26": "___ wrestling",
+            "27": "Brazilian state capital",
+            "29": "Religious period dating from A.D. 622",
+            "31": "Just not done?",
+            "33": "Drinking game where each bar that's visited is considered a hole",
+            "34": "Like 38-Down",
+            "36": "Locks in place for a while?",
+            "37": "The orangutan, in \"The Murders in the Rue Morgue\"",
+            "39": "Not at all sharp",
+            "40": "Like noir detective novels, typically",
+            "42": "Leaves on the menu?",
+            "46": "Going by",
+            "47": "Some farm vehicles",
+            "49": "Asian appetizer",
+            "50": "Lead-in to -drome",
+            "52": "Something seen on cold days",
+            "54": "Sanders, for one: Abbr.",
+            "55": "Longfellow's \"Evangeline,\" e.g.",
+            "56": "Stereotypical wear for a crackpot theorist",
+            "58": "Reggae's Peter",
+            "59": "Swedish pop group whose 1994 hit \"The Sign\" was #1 for six weeks",
+            "60": "Stops waffling",
+            "61": "In force?"
+        },
+        "down": {
+            "1": "See 4-Down",
+            "2": "\"You think you're soooo funny ...\"",
+            "3": "Playground rejoinder",
+            "4": "With 1-Down, five-time winner of the British Open",
+            "5": "Breeze",
+            "6": "Presidential middle name",
+            "7": "General Israel of the American Revolution",
+            "8": "Raised, as a trapdoor",
+            "9": "\"Deal!\"",
+            "10": "Sticky treats",
+            "11": "Search for oneself on Google, e.g.",
+            "12": "Response to \"Gracias\"",
+            "14": "Stands on the hind legs, in dialect",
+            "17": "Covered area near the fingertip",
+            "23": "Kid-lit character with a \"Purple Crayon\"",
+            "25": "River flowing from the Garden of Eden, in the Bible",
+            "28": "Clobbered, in British slang",
+            "30": "May honorees, colloquially",
+            "32": "Cost of fighting?",
+            "34": "Definitely not a city slicker",
+            "35": "Country of 180+ million people that has never participated in the Winter Olympics",
+            "37": "Snackable treat on a stick",
+            "38": "Ancient playwright who specialized in New Comedy",
+            "40": "Can't help but",
+            "41": "Pound with sound",
+            "43": "Suddenly attack",
+            "44": "Chilling",
+            "45": "Made a bad impression on",
+            "48": "Stand-up comedian's prop, often",
+            "51": "Adolph who coined the motto \"All the News That's Fit to Print\"",
+            "53": "Player of oldies when they were newies",
+            "57": "Birth announcement info: Abbr."
+        }
+    },
+    "userSolution": [
+        [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            ".",
+            ".",
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            ".",
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            ".",
+            ".",
+            ".",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "."
+        ],
+        [
+            ".",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "."
+        ],
+        [
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            ".",
+            ".",
+            "."
+        ],
+        [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            "",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            "",
+            ".",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            "",
+            "",
+            ".",
+            ".",
+            ".",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    ],
+    "info": {
+        "title": "NY Times, Saturday, November 26, 2016 ",
+        "author": "Paolo Pasco / Will Shortz",
+        "copyright": "© 2016, The New York Times",
+        "publisher": "",
+        "intro": ""
+    }
+}
