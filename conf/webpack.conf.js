@@ -42,7 +42,6 @@ module.exports = {
                 test: /\.js$/,
                 exclude: [/node_modules/, RegExp(conf.paths.vendor)],
                 loaders: [
-                    'react-hot',
                     'babel'
                 ]
             }
