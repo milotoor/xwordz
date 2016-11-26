@@ -1,6 +1,9 @@
 
-export { default as Board } from './Board';
-export { default as ClueBar } from './ClueBar';
+import Crossword, { Board, ClueBar, ClueDirectory } from './Crossword';
 
-import Crossword from './Crossword';
 export default Crossword;
+export {
+    Board,
+    ClueBar,
+    ClueDirectory
+};

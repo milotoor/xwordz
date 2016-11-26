@@ -2,7 +2,7 @@
 import React, { PropTypes } from 'react';
 import { Card } from 'react-mdl';
 
-import Colors from '../../../util/colors';
+import Colors from '../../../../util/colors';
 import './ClueBar.styl';
 
 
@@ -18,7 +18,7 @@ const ClueBar = props => {
     const dirLetter = currentClue.direction[0].toUpperCase();
 
     return (
-        <Card id="clue-bar" className={Colors.primary500}>
+        <Card id="clue-bar" shadow={3} className={Colors.primary700}>
             <span id="clue-bar-number">{currentClue.number}{dirLetter}</span>
             <span id="clue-bar-clue">{getClueText(board, currentClue)}</span>
         </Card>

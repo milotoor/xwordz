@@ -1,11 +1,21 @@
 
+@import 'rupture/rupture'
+
+board-dimensions(n)
+    height n
+    width n
+
 #board
-    height 500px
-    width 500px
+    board-dimensions 500px
     cursor default
     border-collapse collapse
     box-sizing border-box
     display table
+
+    // Changes the board size when the window size is less than 900px
+    +below(900px)
+        &
+            board-dimensions 400px
 
     .board-row
         margin 0

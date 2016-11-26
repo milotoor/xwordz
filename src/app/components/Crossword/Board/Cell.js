@@ -1,6 +1,6 @@
 
 import React, { Component, PropTypes } from 'react';
-import Colors from '../../../util/colors';
+import Colors from '../../../../util/colors';
 
 
 export default class Cell extends Component {
