@@ -10,11 +10,10 @@ import './ClueBar.styl';
  * Given the board data and a clue, returns the text of the clue
  */
 const getClueText = (board, clue) => {
-    return board.clues[clue.direction][clue.number];
+    return board.getIn(['clues', clue.direction, clue.number]);
 };
 
-const ClueBar = props => {
-    const { currentClue, board } = props;
+const ClueBar = ({ currentClue, board }) => {
     const dirLetter = currentClue.direction[0].toUpperCase();
 
     return (
