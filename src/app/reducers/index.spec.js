@@ -1,11 +1,11 @@
 
 import { List, Map, fromJS } from 'immutable';
-import { expect } from 'chai';
+import { assert, expect } from 'chai';
 
-import './test_helper';
-import puzzleJSON from './data/puzzle.json';
+import '../../../test/test_helper';
+import puzzleJSON from '../../../test/data/puzzle.json';
 
-import reducer, { helpers as reducerHelpers } from '../src/app/reducers';
+import reducer, { helpers as reducerHelpers } from '.';
 
 describe('reducer', () => {
     it('handles INIT_STATE', () => {
@@ -29,7 +29,9 @@ describe('reducer', () => {
             reducerHelpers.initPuzzleClues(mapState.get('puzzle'))
         );
 
-        expect(nextState).to.equal(expectedState);
+        expect(nextState).to.equal(expectedState, 'INIT_STATE action does not update state correctly');
+        assert.isOk(nextState.getIn(['puzzle', 'clues', 'across', 1]), 'Numeric clue does not exist');
+        assert.isNotOk(nextState.getIn(['puzzle', 'clues', 'across', '1']), 'String clue exists');
     });
 
     it('handles MOVE_CELL_DIRECTION', () => {

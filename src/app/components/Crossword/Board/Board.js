@@ -33,7 +33,7 @@ export default class Board extends Component {
                                 <BoardCell
                                     data={cell}
                                     neighbors={this._getCellNeighbors(cell, rowCells)}
-                                    clicked={this.cellClicked}
+                                    onCellClick={this.cellClicked}
                                     isCurrentCell={this.state.currentCell === cell}
                                     currentClue={currentClue}
                                 />

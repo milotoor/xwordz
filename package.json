@@ -10,7 +10,7 @@
     "serve:dist": "gulp serve:dist",
     "test:auto": "gulp test:auto",
     "lint": "eslint .",
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*.js\"",
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"src/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch"
   },
   "author": "Milo Toor",
@@ -68,7 +68,7 @@
     "mocha": "^3.2.0",
     "phantomjs-prebuilt": "^2.1.6",
     "postcss-loader": "^0.8.0",
-    "react-addons-test-utils": "^15.0.1",
+    "react-addons-test-utils": "^15.4.1",
     "react-hot-loader": "3.0.0-beta.6",
     "rupture": "0.6.2",
     "style-loader": "^0.13.0",

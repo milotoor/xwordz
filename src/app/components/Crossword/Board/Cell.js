@@ -6,20 +6,20 @@ import Colors from '../../../../util/colors';
 export default class Cell extends Component {
     static propTypes = {
         data         : PropTypes.object.isRequired,
-        clicked      : PropTypes.func.isRequired,
+        onCellClick  : PropTypes.func.isRequired,
         isCurrentCell: PropTypes.bool.isRequired,
-        currentClue  : PropTypes.object,
-        clueDirection: PropTypes.string
+        currentClue  : PropTypes.object
     }
 
     render () {
         const { data } = this.props;
         const
-            cellContent = data.isBlockCell ? '\u00a0' : data.solution,
-            clueNumber = data.clueNumber;
+            nbsp        = '\u00a0',
+            cellContent = data.isBlockCell ? nbsp : (data.solution || nbsp),
+            clueNumber  = data.clueNumber;
 
         return (
-            <div className={this._cellClasses()} onClick={this.handleClick}>
+            <div className={this._cellClasses()} onClick={this._onCellClick}>
                 {clueNumber && <span className="clue-number">{clueNumber}</span>}
                 <span>{cellContent.toUpperCase()}</span>
             </div>
@@ -51,7 +51,11 @@ export default class Cell extends Component {
         return cellClassNames.join(' ');
     }
 
-    handleClick = () => {
-        this.props.clicked(this.props.data);
-    }
+    /**
+     * Callback triggered when the cell is clicked
+     */
+    _onCellClick = () => {
+        const { data, onCellClick } = this.props;
+        onCellClick(data);
+    };
 }
