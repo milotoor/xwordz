@@ -10,11 +10,14 @@
         "xo-react"
     ],
     "rules": {
+        "indent": ["error", 4, {
+            "SwitchCase": 1
+        }],
         "key-spacing": ["error", {
             "align": "colon"
         }],
-        "indent": ["error", 4, {
-            "SwitchCase": 1
+        "no-constant-condition": ["error", {
+            "checkLoops": false
         }],
         "no-debugger": "warn",
         "no-multi-spaces": ["error", {
