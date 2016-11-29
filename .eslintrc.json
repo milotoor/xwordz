@@ -42,12 +42,13 @@
         }],
         "one-var": "off",
         "operator-linebreak": ["error", "before"],
-        "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
+        "react/jsx-closing-bracket-location": ["error", "after-props"],
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4],
         "react/jsx-no-bind": ["error", {
             "ignoreRefs": true
         }],
+        "react/jsx-space-before-closing": ["error", "always"],
         "space-before-function-paren": ["error", "always"]
     }
 }
