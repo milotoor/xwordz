@@ -9,17 +9,17 @@ export default class Cell extends Component {
         onCellClick  : PropTypes.func.isRequired,
         isCurrentCell: PropTypes.bool.isRequired,
         currentClue  : PropTypes.object
-    }
+    };
 
     render () {
-        const { data } = this.props;
+        const data = this.props.data.toJS();
         const
             nbsp        = '\u00a0',
             cellContent = data.isBlockCell ? nbsp : (data.solution || nbsp),
             clueNumber  = data.clueNumber;
 
         return (
-            <div className={this._cellClasses()} onClick={this._onCellClick}>
+            <div className={this._cellClasses()} onClick={this.handleCellClick}>
                 {clueNumber && <span className="clue-number">{clueNumber}</span>}
                 <span>{cellContent.toUpperCase()}</span>
             </div>
@@ -27,13 +27,10 @@ export default class Cell extends Component {
     }
 
     _cellClasses () {
-        const {
-            data,
-            isCurrentCell,
-            currentClue
-        } = this.props;
-
-        const cellClassNames = ['cell-content'];
+        const { isCurrentCell, currentClue } = this.props;
+        const
+            data           = this.props.data.toJS(),
+            cellClassNames = ['cell-content'];
 
         // Add "block" class if the cell is a block
         data.isBlockCell && cellClassNames.push('block');
@@ -54,7 +51,7 @@ export default class Cell extends Component {
     /**
      * Callback triggered when the cell is clicked
      */
-    _onCellClick = () => {
+    handleCellClick = () => {
         const { data, onCellClick } = this.props;
         onCellClick(data);
     };

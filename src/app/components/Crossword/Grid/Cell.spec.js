@@ -7,7 +7,7 @@ import {
     Simulate
 } from 'react-addons-test-utils';
 
-import { List } from 'immutable';
+import { List, fromJS } from 'immutable';
 import { expect } from 'chai';
 
 import Colors from '../../../../util/colors';
@@ -17,18 +17,18 @@ import Cell from './Cell';
 describe('Cell', () => {
     it('renders a clue number when provided', () => {
         const container = document.createElement('div');
-        const cellProps = {
+        let cellProps = fromJS({
             data         : {},
-            onCellClick    : () => {},
+            onCellClick  : () => {},
             isCurrentCell: false
-        };
+        });
 
         let component = ReactDOM.render(<Cell {...cellProps} />, container),
             clueNumber = scryRenderedDOMComponentsWithClass(component, 'clue-number');
         expect(clueNumber.length).to.equal(0, 'Clue number rendered when it should not');
 
         // Give the props a clue number
-        cellProps.data.clueNumber = 1;
+        cellProps = cellProps.setIn(['data', 'clueNumber'], 1);
         component = ReactDOM.render(<Cell {...cellProps} />, container);
         clueNumber = scryRenderedDOMComponentsWithClass(component, 'clue-number');
         expect(clueNumber.length).to.equal(1, 'Clue number did not render when it should have');
@@ -39,7 +39,7 @@ describe('Cell', () => {
         const container = document.createElement('div');
         const cellProps = {
             data         : {},
-            onCellClick    : () => {},
+            onCellClick  : () => {},
             isCurrentCell: false
         };
 
@@ -58,7 +58,7 @@ describe('Cell', () => {
         const container = document.createElement('div');
         const cellProps = {
             data         : {},
-            onCellClick    : () => {},
+            onCellClick  : () => {},
             isCurrentCell: false,
         };
 
