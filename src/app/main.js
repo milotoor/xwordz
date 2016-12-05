@@ -9,7 +9,7 @@ export class Main extends Component {
         return (
             <div id="main-wrapper">
                 <main>
-                    <Crossword/>
+                    <Crossword />
                 </main>
             </div>
         );
