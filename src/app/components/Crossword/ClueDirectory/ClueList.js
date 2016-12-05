@@ -13,10 +13,16 @@ export default class ClueList extends Component {
     };
 
     render () {
+        const { clues } = this.props;
         return (
-            <List>
-                {Object.keys(this.props.clues).map(clueNumber =>
-                    <ListItem key={clueNumber}>{clueNumber}</ListItem>
+            <List className="clue-list">
+                {clues.valueSeq().map((clue, clueNumber) =>
+                    <ListItem key={clueNumber} className="clue">
+                        <div className="clue-content">
+                            <span>{clueNumber + 1}.</span>
+                            <span className="clue-text">{clue}</span>
+                        </div>
+                    </ListItem>
                 )}
             </List>
         );
