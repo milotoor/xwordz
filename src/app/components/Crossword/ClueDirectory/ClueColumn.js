@@ -7,13 +7,13 @@ import ClueList from './ClueList';
 
 export default class ClueColumn extends Component {
     static propTypes = {
-        board      : PropTypes.object.isRequired,
+        clues      : PropTypes.object.isRequired,
         currentClue: PropTypes.object.isRequired,
         direction  : PropTypes.string.isRequired
     };
 
     render () {
-        const { board, currentClue, direction } = this.props;
+        const { clues, currentClue, direction } = this.props;
         const columnStyle = {
             borderRight: `1px solid ${Colors.background.grey400}`
         };
@@ -24,10 +24,11 @@ export default class ClueColumn extends Component {
                     {direction.toUpperCase()}
                 </div>
 
-                <ClueList
-                    clues={board.clues[direction]}
-                    currentClue={currentClue}
-                />
+                <div className="clue-list-wrapper">
+                    <ClueList
+                        clues={clues.get(direction)}
+                        currentClue={currentClue} />
+                </div>
             </div>
         );
     }
