@@ -2,36 +2,35 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { Board, ClueBar, ClueDirectory } from '.';
+import { Grid, ClueBar, ClueDirectory } from '.';
+import Helpers from './helpers';
 import './Crossword.styl';
 
 
 export class Crossword extends PureComponent {
     static propTypes = {
-        board   : PropTypes.object.isRequired,
+        puzzle  : PropTypes.object.isRequired,
         position: PropTypes.object.isRequired
     }
 
     render () {
+        const { puzzle, position } = this.props;
+        const currentClue = Helpers.currentClue(puzzle, position);
+
         return (
             <div id="crossword">
                 <div id="clue-bar-board-wrapper">
-                    <ClueBar
-                        currentClue={this.state.currentClue}
-                        board={this.props.board}
-                    />
+                    <ClueBar currentClue={currentClue} />
 
-                    <Board
-                        board={this.props.board}
-                        currentClue={this.props.currentClue}
-                        updateClue={this.updateClue}
-                    />
+                    <Grid
+                        puzzle={puzzle}
+                        position={position}
+                        updateClue={this.updateClue} />
                 </div>
 
                 <ClueDirectory
-                    currentClue={this.state.currentClue}
-                    board={this.props.board}
-                />
+                    clues={puzzle.get('clues')}
+                    currentClue={currentClue} />
             </div>
         );
     }
@@ -41,7 +40,7 @@ export class Crossword extends PureComponent {
 
 function mapStateToProps (state) {
     return {
-        board   : state.get('puzzle'),
+        puzzle  : state.get('puzzle'),
         position: state.get('position')
     };
 }
