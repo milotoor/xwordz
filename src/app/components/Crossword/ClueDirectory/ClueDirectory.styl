@@ -1,4 +1,6 @@
 
+$mdl-grey-300 = rgb(224, 224, 224)
+
 #clue-directory
     flex-direction row
     height 565px
@@ -14,3 +16,27 @@
 
         &:first-child
             border-right 1px solid grey
+
+        .clue-list-wrapper
+            height 100%
+            overflow-y scroll
+
+        .clue-list
+            margin 0
+            padding 0
+
+            .clue
+                align-items center
+                font-size 12px
+                padding 5px 10px
+
+                &:hover
+                    background-color $mdl-grey-300
+
+                .clue-content
+                    display flex
+                    justify-content flex-start
+                    flex-flow row nowrap
+
+                    .clue-text
+                        margin-left 10px
