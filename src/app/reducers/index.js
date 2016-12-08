@@ -106,12 +106,45 @@ const moveCellDirection = (state, direction) => {
     }
 };
 
+
+/**
+ * Update the current position given the number and direction of a new clue
+ */
+const changeClue = (state, clue) => {
+    // Iterate across the grid until we find the clue.
+    // TODO: This should happen with grid initialization.
+    const grid = state.getIn(['puzzle', 'grid']);
+    for (const row of grid) {
+        for (const cell of row) {
+            if (!cell.has('containingClues')) {
+                continue;
+            }
+
+            if (cell.getIn(['containingClues', clue.direction]) === clue.number) {
+                return state.set('position', new Map({
+                    row: grid.indexOf(row),
+                    col: row.indexOf(cell),
+                    dir: clue.direction
+                }));
+            }
+        }
+    }
+
+    // Couldn't find the starting cell... return state unchanged.
+    return state;
+};
+
+
 export default function (state = new Map(), action) {
     switch (action.type) {
         case 'INIT_STATE':
             return initPuzzle(state, action.puzzle);
         case 'MOVE_CELL_DIRECTION':
             return moveCellDirection(state, action.dir);
+        case 'CHANGE_CLUE':
+            return changeClue(state, action.clue);
+
+        // Leftovers from setup app
         case 'SET_CONNECTION_STATE':
             return setConnectionState(state, action.state, action.connected);
         case 'SET_STATE':

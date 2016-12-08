@@ -127,66 +127,51 @@ describe('reducer', () => {
         }));
     });
 
-    it('handles SET_STATE', () => {
-        const initialState = new Map();
-        const action = {
-            type : 'SET_STATE',
-            state: new Map({
-                vote: new Map({
-                    pair : List.of('Trainspotting', '28 Days Later'),
-                    tally: new Map({ Trainspotting: 1 })
-                })
-            })
-        };
-        const nextState = reducer(initialState, action);
-
-        expect(nextState).to.equal(fromJS({
-            vote: {
-                pair : ['Trainspotting', '28 Days Later'],
-                tally: { Trainspotting: 1 }
+    it('handles CHANGE_CLUE by updating position and direction', () => {
+        let initialState = fromJS({
+            puzzle: puzzleJSON,
+            position: {
+                row: 0,
+                col: 0,
+                dir: 'across'
             }
-        }));
-    });
+        });
 
-    it('handles SET_STATE with plain JS payload', () => {
-        const initialState = new Map();
-        const action = {
-            type : 'SET_STATE',
-            state: {
-                vote: {
-                    pair : ['Trainspotting', '28 Days Later'],
-                    tally: { Trainspotting: 1 }
-                }
+        let action = {
+            type: 'CHANGE_CLUE',
+            clue: {
+                number   : 9,
+                direction: 'across'
             }
         };
-        const nextState = reducer(initialState, action);
 
-        expect(nextState).to.equal(fromJS({
-            vote: {
-                pair : ['Trainspotting', '28 Days Later'],
-                tally: { Trainspotting: 1 }
-            }
+        let nextState = reducer(initialState, action);
+        expect(nextState.get('position')).to.equal(Map({
+            row: 0,
+            col: 11,
+            dir: 'across'
         }));
-    });
 
-    it('handles SET_STATE without initial state', () => {
-        const action = {
-            type : 'SET_STATE',
-            state: {
-                vote: {
-                    pair : ['Trainspotting', '28 Days Later'],
-                    tally: { Trainspotting: 1 }
-                }
-            }
+        action.clue = {
+            number   : 28,
+            direction: 'down'
         };
-        const nextState = reducer(undefined, action);
 
-        expect(nextState).to.equal(fromJS({
-            vote: {
-                pair : ['Trainspotting', '28 Days Later'],
-                tally: { Trainspotting: 1 }
-            }
+        nextState = reducer(nextState, action);
+        expect(nextState.get('position')).to.equal(Map({
+            row: 5,
+            col: 4,
+            dir: 'down'
         }));
+
+        // When given an unreal clue, nothing should change
+        action.clue = {
+            number   : 2,
+            direction: 'across'
+        };
+
+        const newestState = reducer(nextState, action);
+        expect(newestState).to.equal(nextState);
     });
 
     it('handles VOTE by setting myVote', () => {
