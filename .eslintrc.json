@@ -10,6 +10,9 @@
         "xo-react"
     ],
     "rules": {
+        "arrow-parens": ["error", "as-needed", {
+            "requireForBlockBody": true
+        }],
         "indent": ["error", 4, {
             "SwitchCase": 1
         }],

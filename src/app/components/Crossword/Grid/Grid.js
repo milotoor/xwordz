@@ -40,7 +40,7 @@ export default class Grid extends Component {
         );
     }
 
-    handleCellClicked = cell => {
+    handleCellClicked = (cell) => {
         if (cell.isBlockCell) {
             return;
         }
