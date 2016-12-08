@@ -1,9 +1,9 @@
 
-import Crossword, { Board, ClueBar, ClueDirectory } from './Crossword';
+import Crossword, { ClueBar, ClueDirectory, Grid } from './Crossword';
 
 export default Crossword;
 export {
-    Board,
     ClueBar,
-    ClueDirectory
+    ClueDirectory,
+    Grid
 };
