@@ -38,9 +38,9 @@ export default class Cell extends Component {
 
         // If the cell is a part of the current clue, color it
         if (
-               !isCurrentCell
-            && data.containingClues
-            && data.containingClues[currentClue.direction] === currentClue.number
+               !isCurrentCell       &&
+               data.containingClues &&
+               data.containingClues[currentClue.direction] === currentClue.number
         ) {
             cellClassNames.push(Colors.primary100);
         }
