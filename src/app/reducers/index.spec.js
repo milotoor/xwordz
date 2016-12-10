@@ -1,5 +1,5 @@
 
-import { List, Map, fromJS } from 'immutable';
+import { Map, fromJS } from 'immutable';
 import { assert, expect } from 'chai';
 
 import '../../../test/test_helper';
@@ -36,16 +36,16 @@ describe('reducer', () => {
 
     it('handles MOVE_CELL_DIRECTION', () => {
         const initialState = fromJS({
-            puzzle: puzzleJSON,
+            puzzle  : puzzleJSON,
             position: {
                 row: 0,
                 col: 0
             }
         });
 
-        const makeAction = (dir) => ({
+        const makeAction = dir => ({
             type: 'MOVE_CELL_DIRECTION',
-            dir : dir
+            dir
         });
 
         const actionDown  = makeAction('DOWN');
@@ -90,7 +90,7 @@ describe('reducer', () => {
 
     it('handles MOVE_CELL_DIRECTION across blocks', () => {
         let initialState = fromJS({
-            puzzle: puzzleJSON,
+            puzzle  : puzzleJSON,
             position: {
                 row: 5,
                 col: 0
@@ -128,8 +128,8 @@ describe('reducer', () => {
     });
 
     it('handles CHANGE_CLUE by updating position and direction', () => {
-        let initialState = fromJS({
-            puzzle: puzzleJSON,
+        const initialState = fromJS({
+            puzzle  : puzzleJSON,
             position: {
                 row: 0,
                 col: 0,
@@ -137,7 +137,7 @@ describe('reducer', () => {
             }
         });
 
-        let action = {
+        const action = {
             type: 'CHANGE_CLUE',
             clue: {
                 number   : 9,
@@ -146,7 +146,7 @@ describe('reducer', () => {
         };
 
         let nextState = reducer(initialState, action);
-        expect(nextState.get('position')).to.equal(Map({
+        expect(nextState.get('position')).to.equal(new Map({
             row: 0,
             col: 11,
             dir: 'across'
@@ -158,7 +158,7 @@ describe('reducer', () => {
         };
 
         nextState = reducer(nextState, action);
-        expect(nextState.get('position')).to.equal(Map({
+        expect(nextState.get('position')).to.equal(new Map({
             row: 5,
             col: 4,
             dir: 'down'

@@ -7,7 +7,7 @@ import {
     Simulate
 } from 'react-addons-test-utils';
 
-import { List, Map, fromJS } from 'immutable';
+import { Map, fromJS } from 'immutable';
 import { expect } from 'chai';
 
 import Colors from '../../../../util/colors';
@@ -17,8 +17,8 @@ import Cell from './Cell';
 describe('Cell', () => {
     it('renders a clue number when provided', () => {
         const container = document.createElement('div');
-        let cellProps = {
-            data         : Map(),
+        const cellProps = {
+            data         : new Map(),
             onCellClick  : () => {},
             isCurrentCell: false
         };
@@ -38,7 +38,7 @@ describe('Cell', () => {
     it('renders correct classes when it is the current cell', () => {
         const container = document.createElement('div');
         const cellProps = {
-            data         : Map(),
+            data         : new Map(),
             onCellClick  : () => {},
             isCurrentCell: false
         };
@@ -57,9 +57,9 @@ describe('Cell', () => {
     it('renders correct classes when it is a block cell', () => {
         const container = document.createElement('div');
         const cellProps = {
-            data         : Map(),
+            data         : new Map(),
             onCellClick  : () => {},
-            isCurrentCell: false,
+            isCurrentCell: false
         };
 
         let component = render(<Cell {...cellProps} />, container),
@@ -76,13 +76,13 @@ describe('Cell', () => {
     it('renders correct classes when it is part of current clue', () => {
         const container = document.createElement('div');
         const cellProps = {
-            data         : fromJS({
+            data: fromJS({
                 containingClues: {
                     across: 5,
                     down  : 1
                 }
             }),
-            onCellClick    : () => {},
+            onCellClick  : () => {},
             isCurrentCell: false,
             currentClue  : {
                 number   : 1,
@@ -113,11 +113,10 @@ describe('Cell', () => {
     it('renders responds to clicks', () => {
         let clickedData = null;
 
-        const container = document.createElement('div');
         const cellProps = {
-            data         : Map(),
-            onCellClick  : (data) => clickedData = data,
-            isCurrentCell: false,
+            data         : new Map(),
+            onCellClick  : data => clickedData = data,
+            isCurrentCell: false
         };
 
         const

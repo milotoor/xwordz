@@ -6,8 +6,8 @@ import {
     Simulate
 } from 'react-addons-test-utils';
 
-import { OrderedMap, Map } from 'immutable';
-import { assert, expect } from 'chai';
+import { Map } from 'immutable';
+import { expect } from 'chai';
 
 import Colors from '../../../../util/colors';
 import { orderedClueMap } from '../../../reducers/helpers/initPuzzleClues';
@@ -15,7 +15,7 @@ import ClueList from './ClueList';
 
 
 // Test data
-const clues = orderedClueMap(Map({
+const clues = orderedClueMap(new Map({
     1: 'Compelling and witty clue',
     2: 'Second down clue',
     4: 'Pretty small puzzle if no 3 down, eh?'
@@ -28,12 +28,13 @@ const currentClue = {
 };
 
 // Test component
-const clueList =
+const clueList = (
     <ClueList
         clues={clues}
         direction="down"
         currentClue={currentClue}
-        onClueClick={() => {}} />;
+        onClueClick={() => {}} />
+);
 
 
 describe('ClueList', () => {
@@ -62,12 +63,13 @@ describe('ClueList', () => {
     it('calls the provided callback when a clue is clicked', () => {
         // Make a different component for this test, so as to provide a meaningful `onClueClick`
         let registeredClickCount = 0;
-        const _clueList =
+        const _clueList = (
             <ClueList
                 clues={clues}
                 direction="down"
                 currentClue={currentClue}
-                onClueClick={() => registeredClickCount++} />;
+                onClueClick={() => registeredClickCount++} />
+        );
 
         const
             component     = renderIntoDocument(_clueList),
@@ -91,12 +93,13 @@ describe('ClueList', () => {
 
         // Make a different component for this test, so as to provide a meaningful `onClueClick`
         let registeredClickCount = 0;
-        const _clueList =
+        const _clueList = (
             <ClueList
                 clues={clues}
                 direction="down"
                 currentClue={_currentClue}
-                onClueClick={() => registeredClickCount++} />;
+                onClueClick={() => registeredClickCount++} />
+        );
 
         const
             component     = renderIntoDocument(_clueList),
