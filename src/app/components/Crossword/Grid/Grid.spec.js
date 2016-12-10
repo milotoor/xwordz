@@ -36,7 +36,7 @@ const grid = (
     <Grid
         puzzle={puzzle}
         position={position}
-        changePosAttr={() => {}} />
+        changePosAttrs={() => {}} />
 );
 
 describe('Grid', () => {
@@ -56,7 +56,7 @@ describe('Grid', () => {
             <Grid
                 puzzle={puzzle}
                 position={position}
-                changePosAttr={attrs => pos = attrs} />
+                changePosAttrs={attrs => pos = attrs} />
         );
 
         const

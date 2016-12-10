@@ -49,7 +49,7 @@ export class Grid extends Component {
         }
 
         const
-            { puzzle, position, changePosAttr } = this.props,
+            { puzzle, position, changePosAttrs } = this.props,
             currentCell = Helpers.currentCell(puzzle.get('grid'), position);
 
         if (currentCell === cellData) {
