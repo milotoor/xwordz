@@ -1,6 +1,6 @@
 
 import { Map, fromJS } from 'immutable';
-import helpers from './helpers';
+import Helpers from './helpers';
 
 function setConnectionState (state, connectionState, connected) {
     return state.set('connection', new Map({
@@ -44,7 +44,7 @@ const initPuzzle = (state, puzzle) => {
         }
     });
 
-    return newState.set('puzzle', helpers.initPuzzleClues(newState.get('puzzle')));
+    return newState.set('puzzle', Helpers.initPuzzleClues(newState.get('puzzle')));
 };
 
 
@@ -156,4 +156,4 @@ export default function (state = new Map(), action) {
     }
 }
 
-export { helpers };
+export { Helpers };

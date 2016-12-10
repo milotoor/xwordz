@@ -5,7 +5,7 @@ import { assert, expect } from 'chai';
 import '../../../test/test_helper';
 import puzzleJSON from '../../../test/data/puzzle.json';
 
-import reducer, { helpers as reducerHelpers } from '.';
+import reducer, { Helpers as reducerHelpers } from '.';
 
 describe('reducer', () => {
     it('handles INIT_STATE', () => {
