@@ -1,17 +1,19 @@
 
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Card, Grid as GridMDL, Cell } from 'react-mdl';
 
+import * as actions from '../../../reducers/actions';
+import Helpers from '../../../helpers';
 import GridCell from './Cell';
-import Helpers from '../helpers';
 import './Grid.styl';
 
 
-export default class Grid extends Component {
+export class Grid extends Component {
     static propTypes = {
-        puzzle    : PropTypes.object.isRequired,
-        position  : PropTypes.object.isRequired,
-        updateClue: PropTypes.func.isRequired
+        puzzle        : PropTypes.object.isRequired,
+        position      : PropTypes.object.isRequired,
+        changePosAttrs: PropTypes.func.isRequired
     }
 
     render () {
@@ -29,6 +31,7 @@ export default class Grid extends Component {
                             <Cell col={1} key={j} className="board-cell">
                                 <GridCell
                                     data={cell}
+                                    coords={{ row: i, col: j }}
                                     onCellClick={this.handleCellClicked}
                                     isCurrentCell={currentCell === cell}
                                     currentClue={currentClue} />
@@ -40,18 +43,25 @@ export default class Grid extends Component {
         );
     }
 
-    handleCellClicked = (cell) => {
-        if (cell.isBlockCell) {
+    handleCellClicked = (cellData, coords) => {
+        if (cellData.get('isBlockCell')) {
             return;
         }
 
-        const { puzzle, position } = this.props,
-            currentCell = Helpers.currentCell(puzzle, position);
+        const
+            { puzzle, position, changePosAttr } = this.props,
+            currentCell = Helpers.currentCell(puzzle.get('grid'), position);
 
-        if (currentCell === cell) {
-            // Dispatch action to toggle direction
+        if (currentCell === cellData) {
+            const
+                curDirection = position.get('dir'),
+                newDirection = curDirection === 'across' ? 'down' : 'across';
+            changePosAttrs({ direction: newDirection });
         } else {
-            // Dispatch action to move current cell
+            changePosAttrs(coords);
         }
     }
 }
+
+
+export default connect(null, actions)(Grid);

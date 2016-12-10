@@ -3,7 +3,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { Grid, ClueBar, ClueDirectory } from '.';
-import Helpers from './helpers';
+import Helpers from '../../helpers';
 import './Crossword.styl';
 
 

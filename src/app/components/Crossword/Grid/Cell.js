@@ -6,6 +6,7 @@ import Colors from '../../../../util/colors';
 export default class Cell extends Component {
     static propTypes = {
         data         : PropTypes.object.isRequired,
+        coords       : PropTypes.object.isRequired,
         onCellClick  : PropTypes.func.isRequired,
         isCurrentCell: PropTypes.bool.isRequired,
         currentClue  : PropTypes.object
@@ -52,7 +53,7 @@ export default class Cell extends Component {
      * Callback triggered when the cell is clicked
      */
     handleCellClick = () => {
-        const { data, onCellClick } = this.props;
-        onCellClick(data);
+        const { data, coords, onCellClick } = this.props;
+        onCellClick(data, coords);
     };
 }

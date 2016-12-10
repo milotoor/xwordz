@@ -19,6 +19,7 @@ describe('Cell', () => {
         const container = document.createElement('div');
         const cellProps = {
             data         : new Map(),
+            coords       : {},
             onCellClick  : () => {},
             isCurrentCell: false
         };
@@ -39,6 +40,7 @@ describe('Cell', () => {
         const container = document.createElement('div');
         const cellProps = {
             data         : new Map(),
+            coords       : {},
             onCellClick  : () => {},
             isCurrentCell: false
         };
@@ -58,6 +60,7 @@ describe('Cell', () => {
         const container = document.createElement('div');
         const cellProps = {
             data         : new Map(),
+            coords       : {},
             onCellClick  : () => {},
             isCurrentCell: false
         };
@@ -82,6 +85,7 @@ describe('Cell', () => {
                     down  : 1
                 }
             }),
+            coords       : {},
             onCellClick  : () => {},
             isCurrentCell: false,
             currentClue  : {
@@ -115,6 +119,7 @@ describe('Cell', () => {
 
         const cellProps = {
             data         : new Map(),
+            coords       : {},
             onCellClick  : data => clickedData = data,
             isCurrentCell: false
         };
