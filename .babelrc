@@ -10,7 +10,12 @@
     "env": {
         "test": {
             "plugins": [
-                "istanbul"
+                "istanbul",
+                ["transform-runtime", {
+                    "helpers": true,
+                    "polyfill": true,
+                    "regenerator": false
+                }]
             ]
         },
         "production": {
