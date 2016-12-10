@@ -10,19 +10,22 @@ import Colors from '../../../../util/colors';
 
 export class Clue extends Component {
     static propTypes = {
-        number : PropTypes.number.isRequired,
-        content: PropTypes.string.isRequired,
-        onClick: PropTypes.func.isRequired
+        number    : PropTypes.number.isRequired,
+        content   : PropTypes.string.isRequired,
+        onClick   : PropTypes.func.isRequired,
+        classNames: PropTypes.string
     };
 
     render () {
-        const { number, content } = this.props;
+        const { number, content, classNames } = this.props;
 
         return (
-            <div className="clue-content" onClick={this.handleClick}>
-                <span className="clue-list-number">{number}.</span>
-                <span className="clue-list-text">{content}</span>
-            </div>
+            <ListItem className={classNames} onClick={this.handleClick}>
+                <div className="clue-content">
+                    <span className="clue-list-number">{number}.</span>
+                    <span className="clue-list-text">{content}</span>
+                </div>
+            </ListItem>
         );
     }
 
@@ -60,9 +63,12 @@ export default class ClueList extends Component {
         return (
             <List className="clue-list">
                 {clues.entrySeq().map(([clueNumber, clue]) =>
-                    <ListItem key={clueNumber} className={clueClasses(clueNumber)}>
-                        <Clue number={clueNumber} content={clue} onClick={this.handleClueClick} />
-                    </ListItem>
+                    <Clue
+                        key={clueNumber}
+                        classNames={clueClasses(clueNumber)}
+                        number={clueNumber}
+                        content={clue}
+                        onClick={this.handleClueClick} />
                 )}
             </List>
         );
