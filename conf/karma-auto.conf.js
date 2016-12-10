@@ -13,14 +13,14 @@ module.exports = function (config) {
       'PhantomJS'
     ],
     frameworks: [
-      'jasmine'
+      'mocha'
     ],
     files: [
       'node_modules/es6-shim/es6-shim.js',
-      conf.path.src('index.spec.js')
+      conf.path.src('**/*.spec.js')
     ],
     preprocessors: {
-      [conf.path.src('index.spec.js')]: [
+      [conf.path.src('**/*.spec.js')]: [
         'webpack'
       ]
     },
@@ -31,10 +31,10 @@ module.exports = function (config) {
     },
     webpack: require('./webpack-test.conf'),
     webpackMiddleware: {
-      noInfo: true
+      stats: 'errors-only'
     },
     plugins: [
-      require('karma-jasmine'),
+      require('karma-mocha'),
       require('karma-junit-reporter'),
       require('karma-coverage'),
       require('karma-phantomjs-launcher'),

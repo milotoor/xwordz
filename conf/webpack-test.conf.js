@@ -1,34 +1,46 @@
-module.exports = {
-  module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint'
-      }
-    ],
 
-    loaders: [
-      {
-        test: /.json$/,
+const conf = require('./gulp.conf');
+
+
+module.exports = {
+    module: {
+        preLoaders: [
+            {
+                test: /\.js$/,
+                exclude: [/node_modules/, RegExp(conf.paths.vendor)],
+                loader: 'eslint'
+            }
+        ],
+
         loaders: [
-          'json'
+            {
+                test: /\.(styl)$/,
+                loaders: [
+                    'style',
+                    'css',
+                    'stylus?paths=node_modules'
+                ]
+            },
+            {
+                test: /.json$/,
+                loaders: [
+                    'json'
+                ]
+            },
+            {
+                test: /\.js$/,
+                exclude: [/node_modules/, RegExp(conf.paths.vendor)],
+                loaders: [
+                    'babel'
+                ]
+            }
         ]
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loaders: [
-          'babel'
-        ]
-      }
-    ]
-  },
-  plugins: [],
-  debug: true,
-  devtool: 'source-map',
-  externals: {
-    'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContext': true
-  }
+    },
+    plugins: [],
+    debug: true,
+    devtool: 'source-map',
+    externals: {
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true
+    }
 };
