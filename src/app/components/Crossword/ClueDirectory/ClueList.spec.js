@@ -81,4 +81,33 @@ describe('ClueList', () => {
         Simulate.click(renderedClues[1]);
         expect(registeredClickCount).to.equal(1);
     });
+
+    it('calls the callback even if the clue has the same number', () => {
+        const _currentClue = {
+            direction: 'across',
+            number   : 1,
+            text     : 'Compelling and witty clue'
+        };
+
+        // Make a different component for this test, so as to provide a meaningful `onClueClick`
+        let registeredClickCount = 0;
+        const _clueList =
+            <ClueList
+                clues={clues}
+                direction="down"
+                currentClue={_currentClue}
+                onClueClick={() => registeredClickCount++} />;
+
+        const
+            component     = renderIntoDocument(_clueList),
+            renderedClues = scryRenderedDOMComponentsWithClass(component, 'clue-content');
+
+        // Clicking the current clue shouldn't do anything
+        Simulate.click(renderedClues[0]);
+        expect(registeredClickCount).to.equal(1);
+
+        // Clicking on any other should trigger the callback
+        Simulate.click(renderedClues[1]);
+        expect(registeredClickCount).to.equal(2);
+    });
 });

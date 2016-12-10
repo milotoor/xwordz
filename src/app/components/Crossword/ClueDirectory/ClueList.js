@@ -75,10 +75,14 @@ export default class ClueList extends Component {
     }
 
     handleClueClick = (clueNumber) => {
-        const { currentClue, onClueClick } = this.props;
+        const { currentClue, direction, onClueClick } = this.props;
 
         // Don't bother with the callback if the current clue is clicked.
-        if (currentClue.number === clueNumber) {
+        const isCurrentClue =
+            currentClue.direction === direction &&
+            currentClue.number === clueNumber;
+
+        if (isCurrentClue) {
             return;
         }
 
