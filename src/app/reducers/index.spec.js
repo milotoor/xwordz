@@ -174,6 +174,45 @@ describe('reducer', () => {
         expect(newestState).to.equal(nextState);
     });
 
+    it('handles CHANGE_POS_ATTRS', () => {
+        const initialState = fromJS({
+            puzzle  : puzzleJSON,
+            position: {
+                row: 0,
+                col: 0,
+                dir: 'across'
+            }
+        });
+
+        // It can handle when just a direction is provided
+        const action = {
+            type : 'CHANGE_POS_ATTRS',
+            attrs: {
+                direction: 'down'
+            }
+        };
+
+        let nextState = reducer(initialState, action);
+        expect(nextState.get('position')).to.equal(new Map({
+            row: 0,
+            col: 0,
+            dir: 'down'
+        }));
+
+        // It can handle when a row and column are provided
+        action.attrs = {
+            row: 1,
+            col: 2
+        };
+
+        nextState = reducer(nextState, action);
+        expect(nextState.get('position')).to.equal(new Map({
+            row: 1,
+            col: 2,
+            dir: 'down'
+        }));
+    });
+
     it('handles VOTE by setting myVote', () => {
         const state = fromJS({
             vote: {

@@ -1,6 +1,9 @@
 
 import { Map, fromJS } from 'immutable';
+import isUndefined from 'lodash/isUndefined';
+
 import Helpers from './helpers';
+
 
 function setConnectionState (state, connectionState, connected) {
     return state.set('connection', new Map({
@@ -135,6 +138,25 @@ const changeClue = (state, clue) => {
 };
 
 
+const changePosition = (state, { row, col, direction }) => {
+    const position = state.get('position').withMutations((pos) => {
+        if (!isUndefined(row)) {
+            pos.set('row', row);
+        }
+
+        if (!isUndefined(col)) {
+            pos.set('col', col);
+        }
+
+        if (!isUndefined(direction)) {
+            pos.set('dir', direction);
+        }
+    });
+
+    return state.set('position', position);
+};
+
+
 export default function (state = new Map(), action) {
     switch (action.type) {
         case 'INIT_STATE':
@@ -143,6 +165,8 @@ export default function (state = new Map(), action) {
             return moveCellDirection(state, action.dir);
         case 'CHANGE_CLUE':
             return changeClue(state, action.clue);
+        case 'CHANGE_POS_ATTRS':
+            return changePosition(state, action.attrs);
 
         // Leftovers from setup app
         case 'SET_CONNECTION_STATE':

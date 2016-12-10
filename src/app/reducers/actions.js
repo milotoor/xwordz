@@ -16,3 +16,11 @@ export function changeClue (direction, number) {
         }
     };
 }
+
+
+export function changePosAttrs (attrs) {
+    return {
+        type: 'CHANGE_POS_ATTRS',
+        attrs
+    };
+}
