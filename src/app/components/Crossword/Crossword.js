@@ -24,8 +24,7 @@ export class Crossword extends PureComponent {
 
                     <Grid
                         puzzle={puzzle}
-                        position={position}
-                        updateClue={this.updateClue} />
+                        position={position} />
                 </div>
 
                 <ClueDirectory
@@ -34,8 +33,6 @@ export class Crossword extends PureComponent {
             </div>
         );
     }
-
-    updateClue = clue => this.setState({ currentClue: clue });
 }
 
 function mapStateToProps (state) {
