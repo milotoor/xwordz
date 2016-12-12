@@ -51,27 +51,39 @@ export class Crossword extends PureComponent {
      * off for now.
      */
     handleKeyDown = (event) => {
-        switch (event.which) {
-            case 37:
-            case 38:
-            case 39:
-            case 40:
-                return this.moveCellDirection(event.which);
+        switch (event.key) {
+            case 'ArrowLeft':
+            case 'ArrowUp':
+            case 'ArrowRight':
+            case 'ArrowDown':
+                return this.handleArrowPress(event.key);
             default:
                 return;
         }
     }
 
-    moveCellDirection (keyCode) {
-        switch (keyCode) {
-            case 37:
-                return this.props.moveCellLeft();
-            case 38:
-                return this.props.moveCellUp();
-            case 39:
-                return this.props.moveCellRight();
-            case 40:
-                return this.props.moveCellDown();
+    /**
+     * Called when an arrow button is pressed. This will either move the cell in a direction, toggle
+     * the current direction, or jump the cell to the next clue in a given direction
+     */
+    handleArrowPress (key) {
+        const
+            { position, changePosAttrs } = this.props,
+            direction = position.get('dir'),
+            isAcross  = direction === 'across',
+            isDown    = direction === 'down';
+
+        const toggleDirection = () => changePosAttrs({ direction: isAcross ? 'down' : 'across' });
+
+        switch (key) {
+            case 'ArrowLeft':
+                return isAcross ? this.props.moveCellLeft() : toggleDirection();
+            case 'ArrowRight':
+                return isAcross ? this.props.moveCellRight() : toggleDirection();
+            case 'ArrowUp':
+                return isDown ? this.props.moveCellUp() : toggleDirection();
+            case 'ArrowDown':
+                return isDown ? this.props.moveCellDown() : toggleDirection();
             default:
                 return;
         }
