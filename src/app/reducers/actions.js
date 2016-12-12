@@ -18,10 +18,10 @@ export function changeClue (direction, number) {
 }
 
 
-export function changePosAttrs (attrs) {
+export function changePosAttrs ({ row, col, direction }) {
     return {
-        type: 'CHANGE_POS_ATTRS',
-        attrs
+        type : 'CHANGE_POS_ATTRS',
+        attrs: { row, col, direction }
     };
 }
 
