@@ -24,3 +24,35 @@ export function changePosAttrs (attrs) {
         attrs
     };
 }
+
+
+export function moveCellUp () {
+    return {
+        type: 'MOVE_CELL_DIRECTION',
+        dir : 'UP'
+    };
+}
+
+
+export function moveCellDown () {
+    return {
+        type: 'MOVE_CELL_DIRECTION',
+        dir : 'DOWN'
+    };
+}
+
+
+export function moveCellLeft () {
+    return {
+        type: 'MOVE_CELL_DIRECTION',
+        dir : 'LEFT'
+    };
+}
+
+
+export function moveCellRight () {
+    return {
+        type: 'MOVE_CELL_DIRECTION',
+        dir : 'RIGHT'
+    };
+}

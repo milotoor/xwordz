@@ -4,6 +4,7 @@ import { assert, expect } from 'chai';
 
 import '../../../test/test_helper';
 import puzzleJSON from '../../../test/data/puzzle.json';
+import * as actions from './actions';
 
 import reducer, { Helpers as reducerHelpers } from '.';
 
@@ -39,52 +40,56 @@ describe('reducer', () => {
             puzzle  : puzzleJSON,
             position: {
                 row: 0,
-                col: 0
+                col: 0,
+                dir: 'across'
             }
         });
 
-        const makeAction = dir => ({
+        const actionDown  = actions.moveCellDown();
+        const actionUp    = actions.moveCellUp();
+        const actionLeft  = actions.moveCellLeft();
+        const actionRight = actions.moveCellRight();
+        const actionDumb  = {
             type: 'MOVE_CELL_DIRECTION',
-            dir
-        });
-
-        const actionDown  = makeAction('DOWN');
-        const actionUp    = makeAction('UP');
-        const actionLeft  = makeAction('LEFT');
-        const actionRight = makeAction('RIGHT');
-        const actionDumb  = makeAction('DUMB');
+            dir : 'DUMB'
+        };
 
         // Moving down/right should work fine
         let nextState = reducer(initialState, actionDown);
         expect(nextState.get('position')).to.equal(fromJS({
             row: 1,
-            col: 0
+            col: 0,
+            dir: 'across'
         }));
 
         nextState = reducer(initialState, actionRight);
         expect(nextState.get('position')).to.equal(fromJS({
             row: 0,
-            col: 1
+            col: 1,
+            dir: 'across'
         }));
 
         // Moving up/left should not change the state (out of bounds)
         nextState = reducer(initialState, actionUp);
         expect(nextState.get('position')).to.equal(fromJS({
             row: 0,
-            col: 0
+            col: 0,
+            dir: 'across'
         }));
 
         nextState = reducer(initialState, actionLeft);
         expect(nextState.get('position')).to.equal(fromJS({
             row: 0,
-            col: 0
+            col: 0,
+            dir: 'across'
         }));
 
         // Providing a nonsense direction should not change the state
         nextState = reducer(initialState, actionDumb);
         expect(nextState.get('position')).to.equal(fromJS({
             row: 0,
-            col: 0
+            col: 0,
+            dir: 'across'
         }));
     });
 
@@ -93,37 +98,31 @@ describe('reducer', () => {
             puzzle  : puzzleJSON,
             position: {
                 row: 5,
-                col: 0
+                col: 0,
+                dir: 'down'
             }
         });
 
-        let action = {
-            type: 'MOVE_CELL_DIRECTION',
-            dir : 'DOWN'
-        };
-
         // Moving down should jump to row 9
-        let nextState = reducer(initialState, action);
+        let nextState = reducer(initialState, actions.moveCellDown());
         expect(nextState.get('position')).to.equal(fromJS({
             row: 9,
-            col: 0
+            col: 0,
+            dir: 'down'
         }));
 
         initialState = initialState.set('position', fromJS({
             row: 1,
-            col: 11
+            col: 11,
+            dir: 'down'
         }));
 
-        action = {
-            type: 'MOVE_CELL_DIRECTION',
-            dir : 'LEFT'
-        };
-
         // Moving left should jump to col 8
-        nextState = reducer(initialState, action);
+        nextState = reducer(initialState, actions.moveCellLeft());
         expect(nextState.get('position')).to.equal(fromJS({
             row: 1,
-            col: 8
+            col: 8,
+            dir: 'down'
         }));
     });
 

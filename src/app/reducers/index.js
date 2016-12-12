@@ -55,8 +55,10 @@ const moveCellDirection = (state, direction) => {
     // Given the current position, attempt to move the cell to the next available position in that
     // direction.
     const
-        curRow = state.getIn(['position', 'row']),
-        curCol = state.getIn(['position', 'col']);
+        position = state.get('position'),
+        curRow   = position.get('row'),
+        curCol   = position.get('col');
+
     let newRow = curRow,
         newCol = curCol,
         op;
@@ -104,7 +106,8 @@ const moveCellDirection = (state, direction) => {
         // Valid move, update the state
         return state.set('position', new Map({
             row: newRow,
-            col: newCol
+            col: newCol,
+            dir: position.get('dir')
         }));
     }
 };
