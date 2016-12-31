@@ -23,13 +23,7 @@
             "checkLoops": false
         }],
         "no-debugger": "warn",
-        "no-multi-spaces": ["error", {
-            "exceptions": {
-                "VariableDeclarator": true,
-                "LogicalExpression": true,
-                "BinaryExpression": true
-            }
-        }],
+        "no-multi-spaces": "off",
         "no-multiple-empty-lines": ["error", {
             "max"    : 2,
             "maxEOF" : 1,
