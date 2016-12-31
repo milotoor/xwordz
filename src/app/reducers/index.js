@@ -1,8 +1,9 @@
 
-import { Map, fromJS } from 'immutable';
-import isUndefined from 'lodash/isUndefined';
+import { Map } from 'immutable';
+import _isUndefined from 'lodash/isUndefined';
+import _isString from 'lodash/isString';
 
-import Helpers from './helpers';
+import * as Helpers from './helpers';
 
 
 function setConnectionState (state, connectionState, connected) {
@@ -37,17 +38,16 @@ function resetVote (state) {
 }
 
 
-const initPuzzle = (state, puzzle) => {
-    const newState = fromJS({
-        puzzle,
-        position: {
+const initPuzzle = (state, puzzle, progress) => {
+    return new Map({
+        puzzle  : Helpers.initPuzzle(puzzle),
+        progress: Helpers.initProgress(puzzle.grid, progress),
+        position: new Map({
             row: 0,
             col: 0,
             dir: 'across'
-        }
+        })
     });
-
-    return newState.set('puzzle', Helpers.initPuzzleClues(newState.get('puzzle')));
 };
 
 
@@ -143,15 +143,15 @@ const changeClue = (state, clue) => {
 
 const changePosition = (state, { row, col, direction }) => {
     const position = state.get('position').withMutations((pos) => {
-        if (!isUndefined(row)) {
+        if (!_isUndefined(row)) {
             pos.set('row', row);
         }
 
-        if (!isUndefined(col)) {
+        if (!_isUndefined(col)) {
             pos.set('col', col);
         }
 
-        if (!isUndefined(direction)) {
+        if (!_isUndefined(direction)) {
             pos.set('dir', direction);
         }
     });
@@ -160,16 +160,32 @@ const changePosition = (state, { row, col, direction }) => {
 };
 
 
+const enterCellContent = (state, content) => {
+    // Validate content
+    if (!_isString(content)) {
+        return state;
+    }
+
+    const
+        row = state.getIn(['position', 'row']),
+        col = state.getIn(['position', 'col']);
+
+    return state.setIn(['progress', row, col], content.toUpperCase());
+};
+
+
 export default function (state = new Map(), action) {
     switch (action.type) {
         case 'INIT_STATE':
-            return initPuzzle(state, action.puzzle);
+            return initPuzzle(state, action.puzzle, action.progress);
         case 'MOVE_CELL_DIRECTION':
             return moveCellDirection(state, action.dir);
         case 'CHANGE_CLUE':
             return changeClue(state, action.clue);
         case 'CHANGE_POS_ATTRS':
             return changePosition(state, action.attrs);
+        case 'ENTER_CELL_CONTENT':
+            return enterCellContent(state, action.content);
 
         // Leftovers from setup app
         case 'SET_CONNECTION_STATE':

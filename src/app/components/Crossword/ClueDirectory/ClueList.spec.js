@@ -6,20 +6,19 @@ import {
     Simulate
 } from 'react-addons-test-utils';
 
-import { Map } from 'immutable';
 import { expect } from 'chai';
 
 import Colors from '../../../../util/colors';
-import { orderedClueMap } from '../../../reducers/helpers/initPuzzleClues';
+import { orderedClueMap } from '../../../reducers/helpers/initPuzzle';
 import ClueList from './ClueList';
 
 
 // Test data
-const clues = orderedClueMap(new Map({
+const clues = orderedClueMap({
     1: 'Compelling and witty clue',
     2: 'Second down clue',
     4: 'Pretty small puzzle if no 3 down, eh?'
-}));
+});
 
 const currentClue = {
     direction: 'down',

@@ -1,6 +1,3 @@
 
-import initPuzzleClues from './initPuzzleClues';
-
-export default {
-    initPuzzleClues
-};
+export { default as initPuzzle   } from './initPuzzle';
+export { default as initProgress } from './initProgress';

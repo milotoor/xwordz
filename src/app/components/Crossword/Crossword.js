@@ -51,12 +51,42 @@ export class Crossword extends PureComponent {
      * off for now.
      */
     handleKeyDown = (event) => {
-        switch (event.key) {
-            case 'ArrowLeft':
-            case 'ArrowUp':
-            case 'ArrowRight':
-            case 'ArrowDown':
-                return this.handleArrowPress(event.key);
+        const key = event.key;
+
+        if (Crossword._isArrowPress(key)) {
+            return this.handleArrowPress(event);
+        }
+
+        if (Crossword._isAlphaPress(key)) {
+            return this.handleAlphaPress(key);
+        }
+    }
+
+    static _cellDirections = {
+        up   : 0,
+        left : 1,
+        right: 2,
+        down : 3
+    };
+
+    /**
+     * Dispatches an action to move the current cell a given direction. The `direction` atttribute
+     * should match one of the values of the `_cellDirections` object
+     *
+     * @param {integer} direction
+     *   An integer representation of the direction to move the cell in. Consult the
+     *   `_cellDirections` object.
+     */
+    moveCell (direction) {
+        switch (direction) {
+            case Crossword._cellDirections.up:
+                return this.props.moveCellUp();
+            case Crossword._cellDirections.left:
+                return this.props.moveCellLeft();
+            case Crossword._cellDirections.right:
+                return this.props.moveCellRight();
+            case Crossword._cellDirections.Down:
+                return this.props.moveCellDown();
             default:
                 return;
         }
@@ -66,27 +96,77 @@ export class Crossword extends PureComponent {
      * Called when an arrow button is pressed. This will either move the cell in a direction, toggle
      * the current direction, or jump the cell to the next clue in a given direction
      */
-    handleArrowPress (key) {
+    handleArrowPress ({ key /* , shiftKey */ }) {
         const
             { position, changePosAttrs } = this.props,
             direction = position.get('dir'),
             isAcross  = direction === 'across',
             isDown    = direction === 'down';
 
-        const toggleDirection = () => changePosAttrs({ direction: isAcross ? 'down' : 'across' });
+        const
+            toggleDirection = () => changePosAttrs({ direction: isAcross ? 'down' : 'across' }),
+            directions      = Crossword._cellDirections;
 
         switch (key) {
             case 'ArrowLeft':
-                return isAcross ? this.props.moveCellLeft() : toggleDirection();
+                return isAcross ? this.moveCell(directions.left)  : toggleDirection();
             case 'ArrowRight':
-                return isAcross ? this.props.moveCellRight() : toggleDirection();
+                return isAcross ? this.moveCell(directions.right) : toggleDirection();
             case 'ArrowUp':
-                return isDown ? this.props.moveCellUp() : toggleDirection();
+                return isDown   ? this.moveCell(directions.up)    : toggleDirection();
             case 'ArrowDown':
-                return isDown ? this.props.moveCellDown() : toggleDirection();
+                return isDown   ? this.moveCell(directions.down)  : toggleDirection();
             default:
                 return;
         }
+    }
+
+    handleAlphaPress (key) {
+        const
+            { position } = this.props,
+            direction = position.get('dir');
+
+        // Emit event to change current progress
+        this.props.enterCellContent(key.toUpperCase());
+
+        // Should be refactored into a method that will move to the next unanswered square in the
+        // current clue
+        if (direction === 'across') {
+            this.moveCell(Crossword._cellDirections.right);
+        } else {
+            this.moveCell(Crossword._cellDirections.down);
+        }
+    }
+
+    /**
+     * Part of our keypress identification system. Returns `true` if the `key` param indicates that
+     * the key that was pressed was an arrow key
+     *
+     * @param {string} key
+     *   The DOM event's string representation of the key pressed
+     *
+     * @returns {boolean}
+     */
+    static _isArrowPress (key) {
+        return [
+            'ArrowLeft',
+            'ArrowRight',
+            'ArrowUp',
+            'ArrowDown'
+        ].includes(key);
+    }
+
+    /**
+     * Part of our keypress identification system. Returns `true` if the `key` param indicates that
+     * the key that was pressed was an alphabetic (i.e. a-zA-Z) key
+     *
+     * @param {string} key
+     *   The DOM event's string representation of the key pressed
+     *
+     * @returns {boolean}
+     */
+    static _isAlphaPress (key) {
+        return 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').includes(key);
     }
 }
 

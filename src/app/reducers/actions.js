@@ -56,3 +56,11 @@ export function moveCellRight () {
         dir : 'RIGHT'
     };
 }
+
+
+export function enterCellContent (content) {
+    return {
+        type: 'ENTER_CELL_CONTENT',
+        content
+    };
+}
