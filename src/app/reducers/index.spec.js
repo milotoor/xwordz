@@ -8,7 +8,7 @@ import * as actions from './actions';
 
 import reducer, { Helpers as reducerHelpers } from '.';
 
-describe.only('reducer', function () {
+describe('reducer', function () {
     // Set up an initial state that can be re-used by the tests
     before(() => {
         this.initialState = new Map({
