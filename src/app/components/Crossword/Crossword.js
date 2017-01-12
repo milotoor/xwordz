@@ -86,7 +86,7 @@ export class Crossword extends PureComponent {
                 return this.props.moveCellLeft();
             case Crossword._cellDirections.right:
                 return this.props.moveCellRight();
-            case Crossword._cellDirections.Down:
+            case Crossword._cellDirections.down:
                 return this.props.moveCellDown();
             default:
                 return;
