@@ -12,12 +12,13 @@ import './Grid.styl';
 export class Grid extends Component {
     static propTypes = {
         puzzle        : PropTypes.object.isRequired,
+        progress      : PropTypes.object.isRequired,
         position      : PropTypes.object.isRequired,
         changePosAttrs: PropTypes.func.isRequired
     }
 
     render () {
-        const { puzzle, position } = this.props;
+        const { puzzle, progress, position } = this.props;
         const
             grid        = puzzle.get('grid'),
             currentClue = Helpers.currentClue(puzzle, position),
@@ -34,7 +35,8 @@ export class Grid extends Component {
                                     coords={{ row: i, col: j }}
                                     onCellClick={this.handleCellClicked}
                                     isCurrentCell={currentCell === cell}
-                                    currentClue={currentClue} />
+                                    currentClue={currentClue}
+                                    entry={progress.getIn([i, j])} />
                             </Cell>
                         )}
                     </GridMDL>

@@ -9,14 +9,16 @@ export default class Cell extends Component {
         coords       : PropTypes.object.isRequired,
         onCellClick  : PropTypes.func.isRequired,
         isCurrentCell: PropTypes.bool.isRequired,
-        currentClue  : PropTypes.object
+        currentClue  : PropTypes.object,
+        entry        : PropTypes.string
     };
 
     render () {
-        const data = this.props.data.toJS();
         const
+            data        = this.props.data.toJS(),
+            entry       = this.props.entry,
             nbsp        = '\u00a0',
-            cellContent = data.isBlockCell ? nbsp : (data.solution || nbsp),
+            cellContent = data.isBlockCell ? nbsp : (entry || nbsp),
             clueNumber  = data.clueNumber;
 
         return (

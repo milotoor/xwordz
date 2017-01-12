@@ -15,7 +15,7 @@ export class Crossword extends PureComponent {
     }
 
     render () {
-        const { puzzle, position } = this.props;
+        const { puzzle, progress, position } = this.props;
         const currentClue = Helpers.currentClue(puzzle, position);
 
         return (
@@ -25,6 +25,7 @@ export class Crossword extends PureComponent {
 
                     <Grid
                         puzzle={puzzle}
+                        progress={progress}
                         position={position} />
                 </div>
 
@@ -173,6 +174,7 @@ export class Crossword extends PureComponent {
 function mapStateToProps (state) {
     return {
         puzzle  : state.get('puzzle'),
+        progress: state.get('progress'),
         position: state.get('position')
     };
 }

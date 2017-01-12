@@ -9,6 +9,7 @@ import {
 import { Map, fromJS } from 'immutable';
 import { expect } from 'chai';
 import '../../../../../test/test_helper';
+import initProgress from '../../../reducers/helpers/initProgress';
 
 import { Grid } from './Grid';
 
@@ -26,6 +27,7 @@ const gridData = fromJS([
 ]);
 
 const puzzle = new Map({ grid: gridData });
+const progress = initProgress(puzzle);
 const position = fromJS({
     row: 0,
     col: 0,
@@ -36,6 +38,7 @@ const grid = (
     <Grid
         puzzle={puzzle}
         position={position}
+        progress={progress}
         changePosAttrs={() => {}} />
 );
 
@@ -56,6 +59,7 @@ describe('Grid', () => {
             <Grid
                 puzzle={puzzle}
                 position={position}
+                progress={progress}
                 changePosAttrs={attrs => pos = attrs} />
         );
 
