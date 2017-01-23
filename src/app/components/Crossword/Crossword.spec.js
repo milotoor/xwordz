@@ -88,12 +88,14 @@ describe('Crossword', function () {
     it('responds to the backspace key', () => {
         ReactDOM.render(puzzle, this.container);
 
-        const expectBackspaceEffect = (start, end) => {
+        const expectBackspaceEffect = (start, end, addLetter = true) => {
             // Move to starting cell
             store.dispatch(changePosAttrs(start));
 
-            // Enter some character
-            store.dispatch(enterCellContent('A'));
+            // Optionally enter some character
+            if (addLetter) {
+                store.dispatch(enterCellContent('A'));
+            }
 
             // Hit backspace
             SimulateEvent.simulate(document.body, 'keydown', { key: 'Backspace' });
@@ -105,6 +107,14 @@ describe('Crossword', function () {
 
             // Assert changes
             expect(store.getState().getIn(['progress', rowStart, colStart])).to.be.null();
+            if (!addLetter) {
+                // If there was no letter at the start square, the end square should also be empty
+                const
+                    rowEnd = state.getIn(['position', 'row']),
+                    colEnd = state.getIn(['position', 'col']);
+                expect(store.getState().getIn(['progress', rowEnd, colEnd])).to.be.null();
+            }
+
             Object.entries(end).forEach(([param, val]) => {
                 expect(store.getState().getIn(['position', param])).to.equal(val);
             });
@@ -116,5 +126,11 @@ describe('Crossword', function () {
 
         // Same thing, but switch to down
         expectBackspaceEffect({ row: 1, direction: 'down' }, { row: 0 });
+
+        // Enter a letter and move one cell ahead of it. Without entering another character, a
+        // deletion should remove the character from the previous cell
+        store.dispatch(changePosAttrs({ row: 0, col: 0, direction: 'across' }));
+        store.dispatch(enterCellContent('B'));
+        expectBackspaceEffect({ col: 1 }, { col: 0 }, false);
     });
 });

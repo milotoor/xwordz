@@ -147,14 +147,30 @@ export class Crossword extends PureComponent {
      * mean moving to the end of the previous clue
      */
     handleBackspace () {
-        this.props.deleteCellContent();
+        const { position, progress, deleteCellContent } = this.props;
 
-        // Move to the previous column
-        const dir = this.props.position.get('dir');
-        if (dir === 'across') {
-            this.moveCell(Crossword._cellDirections.left);
+        const deleteContent = () => deleteCellContent();
+        const moveCell = () => {
+            // Move to the previous column
+            const dir = position.get('dir');
+            if (dir === 'across') {
+                this.moveCell(Crossword._cellDirections.left);
+            } else {
+                this.moveCell(Crossword._cellDirections.up);
+            }
+        };
+
+        // Check if the current cell is empty. If it is, we will move first, then delete. Otherwise
+        // if there is a character we will delete and then move
+        const
+            curRow = position.get('row'),
+            curCol = position.get('col');
+        if (progress.getIn([curRow, curCol]) === null) {
+            moveCell();
+            deleteContent();
         } else {
-            this.moveCell(Crossword._cellDirections.up);
+            deleteContent();
+            moveCell();
         }
     }
 
