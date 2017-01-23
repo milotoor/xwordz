@@ -174,6 +174,15 @@ const enterCellContent = (state, content) => {
 };
 
 
+const deleteCellContent = (state) => {
+    const
+        row = state.getIn(['position', 'row']),
+        col = state.getIn(['position', 'col']);
+
+    return state.setIn(['progress', row, col], null);
+};
+
+
 export default function (state = new Map(), action) {
     switch (action.type) {
         case 'INIT_STATE':
@@ -186,6 +195,8 @@ export default function (state = new Map(), action) {
             return changePosition(state, action.attrs);
         case 'ENTER_CELL_CONTENT':
             return enterCellContent(state, action.content);
+        case 'DELETE_CELL_CONTENT':
+            return deleteCellContent(state);
 
         // Leftovers from setup app
         case 'SET_CONNECTION_STATE':

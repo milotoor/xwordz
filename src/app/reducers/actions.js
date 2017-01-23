@@ -64,3 +64,10 @@ export function enterCellContent (content) {
         content
     };
 }
+
+
+export function deleteCellContent () {
+    return {
+        type: 'DELETE_CELL_CONTENT'
+    };
+}

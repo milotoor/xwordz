@@ -8,7 +8,7 @@ import SimulateEvent from 'simulate-event';
 import { fromJS } from 'immutable';
 import { expect } from 'chai';
 
-import { setState } from '../../reducers/actions';
+import { setState, changePosAttrs, enterCellContent } from '../../reducers/actions';
 import reducer from '../../reducers';
 import '../../../../test/test_helper';
 import puzzleJSON from '../../../../test/data/puzzle.json';
@@ -83,5 +83,38 @@ describe('Crossword', function () {
         // The position should move, and additionally the progress should have been updated
         expect(store.getState().getIn(['position', 'col'])).to.equal(1);
         expect(store.getState().getIn(['progress', 0, 0])).to.equal('A');
+    });
+
+    it('responds to the backspace key', () => {
+        ReactDOM.render(puzzle, this.container);
+
+        const expectBackspaceEffect = (start, end) => {
+            // Move to starting cell
+            store.dispatch(changePosAttrs(start));
+
+            // Enter some character
+            store.dispatch(enterCellContent('A'));
+
+            // Hit backspace
+            SimulateEvent.simulate(document.body, 'keydown', { key: 'Backspace' });
+
+            const
+                state    = store.getState(),
+                rowStart = start.row || state.getIn(['position', 'row']),
+                colStart = start.end || state.getIn(['position', 'col']);
+
+            // Assert changes
+            expect(store.getState().getIn(['progress', rowStart, colStart])).to.be.null();
+            Object.entries(end).forEach(([param, val]) => {
+                expect(store.getState().getIn(['position', param])).to.equal(val);
+            });
+        };
+
+        // Move to the first non-edge cell, maintaining the across direction. Backspace should
+        // delete the current character and move back to the first cell
+        expectBackspaceEffect({ col: 1 }, { col: 0 });
+
+        // Same thing, but switch to down
+        expectBackspaceEffect({ row: 1, direction: 'down' }, { row: 0 });
     });
 });

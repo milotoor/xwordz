@@ -21,14 +21,14 @@ export default function initProgress (grid, progress) {
         progress = [];
 
         // Iterate over the cells of the grid, compiling an array of arrays with each element
-        // initialized to `null`. If the cell is a block cell, it will be initialized to `undefined`
+        // initialized to `null`. If the cell is a block cell, it will be initialized to a period
         // instead.
         for (const row of grid) {
             const rowProgress = [];
             progress.push(rowProgress);
             for (const cell of row) {
                 if (cell.isBlockCell) {
-                    rowProgress.push('');
+                    rowProgress.push('.');
                 } else {
                     rowProgress.push(null);
                 }

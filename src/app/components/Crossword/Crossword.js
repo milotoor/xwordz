@@ -55,12 +55,14 @@ export class Crossword extends PureComponent {
         const key = event.key;
 
         if (Crossword._isArrowPress(key)) {
-            return this.handleArrowPress(event);
+            this.handleArrowPress(event);
+        } else if (Crossword._isAlphaPress(key)) {
+            this.handleAlphaPress(key);
+        } else if (Crossword._isBackspace(key)) {
+            this.handleBackspace();
         }
 
-        if (Crossword._isAlphaPress(key)) {
-            return this.handleAlphaPress(key);
-        }
+        event.stopPropagation();
     }
 
     static _cellDirections = {
@@ -140,6 +142,23 @@ export class Crossword extends PureComponent {
     }
 
     /**
+     * Handles the instance when the user presses the backspace key. We will delete the content of
+     * the current cell and move them one cell backward in the direction they are facing. This may
+     * mean moving to the end of the previous clue
+     */
+    handleBackspace () {
+        this.props.deleteCellContent();
+
+        // Move to the previous column
+        const dir = this.props.position.get('dir');
+        if (dir === 'across') {
+            this.moveCell(Crossword._cellDirections.left);
+        } else {
+            this.moveCell(Crossword._cellDirections.up);
+        }
+    }
+
+    /**
      * Part of our keypress identification system. Returns `true` if the `key` param indicates that
      * the key that was pressed was an arrow key
      *
@@ -168,6 +187,10 @@ export class Crossword extends PureComponent {
      */
     static _isAlphaPress (key) {
         return 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').includes(key);
+    }
+
+    static _isBackspace (key) {
+        return key === 'Backspace';
     }
 }
 

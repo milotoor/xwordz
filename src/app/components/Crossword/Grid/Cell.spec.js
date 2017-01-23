@@ -79,7 +79,7 @@ describe('Cell', function () {
                     down  : 1
                 }
             }),
-            currentClue  : {
+            currentClue: {
                 number   : 1,
                 direction: 'across'
             }
