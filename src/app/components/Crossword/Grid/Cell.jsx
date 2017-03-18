@@ -21,6 +21,7 @@ export default class Cell extends Component {
             cellContent = data.isBlockCell ? nbsp : (entry || nbsp),
             clueNumber  = data.clueNumber;
 
+        console.log('rendering cell');
         return (
             <div className={this._cellClasses()} onClick={this.handleCellClick}>
                 {clueNumber && <span className="clue-number">{clueNumber}</span>}

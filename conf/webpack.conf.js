@@ -10,7 +10,7 @@ module.exports = {
     module: {
         preLoaders: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: [/node_modules/, RegExp(conf.paths.vendor)],
                 loader: 'eslint'
             }
@@ -39,7 +39,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: [/node_modules/, RegExp(conf.paths.vendor)],
                 loaders: [
                     'babel'

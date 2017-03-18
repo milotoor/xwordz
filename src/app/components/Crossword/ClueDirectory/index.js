@@ -1,3 +1,1 @@
-
-import ClueDirectory from './ClueDirectory';
-export default ClueDirectory;
+export { default } from './ClueDirectory.jsx';

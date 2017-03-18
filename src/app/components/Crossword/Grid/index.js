@@ -1,5 +1,2 @@
-
-export { default as Cell } from './Cell';
-
-import Grid from './Grid';
-export default Grid;
+export { default as Cell } from './Cell.jsx';
+export { default } from './Grid.jsx';

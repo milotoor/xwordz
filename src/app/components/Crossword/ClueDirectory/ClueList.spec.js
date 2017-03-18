@@ -10,7 +10,7 @@ import { expect } from 'chai';
 
 import Colors from '../../../../util/colors';
 import { orderedClueMap } from '../../../reducers/helpers/initPuzzle';
-import ClueList from './ClueList';
+import ClueList from './ClueList.jsx';
 
 
 // Test data

@@ -2,7 +2,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Card } from 'react-mdl';
 
-import ClueColumn from './ClueColumn';
+import ClueColumn from './ClueColumn.jsx';
 import './ClueDirectory.styl';
 
 

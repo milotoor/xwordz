@@ -5,7 +5,7 @@ import { Card, Grid as GridMDL, Cell } from 'react-mdl';
 
 import * as actions from '../../../reducers/actions';
 import Helpers from '../../../helpers';
-import GridCell from './Cell';
+import GridCell from './Cell.jsx';
 import './Grid.styl';
 
 

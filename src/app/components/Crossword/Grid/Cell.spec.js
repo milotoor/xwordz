@@ -13,7 +13,7 @@ import { expect } from 'chai';
 import _extend from 'lodash/extend';
 
 import Colors from '../../../../util/colors';
-import Cell from './Cell';
+import Cell from './Cell.jsx';
 
 
 describe('Cell', function () {

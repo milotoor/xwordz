@@ -13,7 +13,7 @@ import reducer from '../../reducers';
 import '../../../../test/test_helper';
 import puzzleJSON from '../../../../test/data/puzzle.json';
 
-import Crossword from './Crossword';
+import Crossword from './Crossword.jsx';
 
 
 // Sample crossword

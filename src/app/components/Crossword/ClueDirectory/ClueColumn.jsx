@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import Colors from '../../../../util/colors';
-import ClueList from './ClueList';
+import ClueList from './ClueList.jsx';
 import * as actions from '../../../reducers/actions';
 
 

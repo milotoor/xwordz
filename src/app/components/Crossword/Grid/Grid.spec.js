@@ -11,7 +11,7 @@ import { expect } from 'chai';
 import '../../../../../test/test_helper';
 import initProgress from '../../../reducers/helpers/initProgress';
 
-import { Grid } from './Grid';
+import { Grid } from './Grid.jsx';
 
 
 // Sample 2x2 crossword
