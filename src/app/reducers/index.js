@@ -1,41 +1,13 @@
 
+// Libs
 import { Map } from 'immutable';
 import _isUndefined from 'lodash/isUndefined';
 import _isString from 'lodash/isString';
 
+// App resources
+import { CLUE_DIRECTIONS } from '../constants';
+import * as events from './events';
 import * as Helpers from './helpers';
-
-
-function setConnectionState (state, connectionState, connected) {
-    return state.set('connection', new Map({
-        state: connectionState,
-        connected
-    }));
-}
-
-function setState (state, newState) {
-    return state.merge(newState);
-}
-
-function vote (state, entry) {
-    const currentRound = state.getIn(['vote', 'round']);
-    const currentPair = state.getIn(['vote', 'pair']);
-    if (currentPair && currentPair.includes(entry)) {
-        return state.set('myVote', new Map({
-            round: currentRound,
-            entry
-        }));
-    }
-    return state;
-}
-
-function resetVote (state) {
-    const votedForRound = state.getIn(['myVote', 'round']);
-    const currentRound = state.getIn(['vote', 'round']);
-    return votedForRound === currentRound
-        ? state
-        : state.remove('myVote');
-}
 
 
 const initPuzzle = (state, puzzle, progress) => {
@@ -45,7 +17,7 @@ const initPuzzle = (state, puzzle, progress) => {
         position: new Map({
             row: 0,
             col: 0,
-            dir: 'across'
+            dir: CLUE_DIRECTIONS.across
         })
     });
 };
@@ -160,6 +132,16 @@ const changePosition = (state, { row, col, direction }) => {
 };
 
 
+const toggleDirection = (state) => {
+    const curDirection = state.getIn(['position', 'dir']);
+    const newDirection = curDirection === CLUE_DIRECTIONS.across
+        ? CLUE_DIRECTIONS.down
+        : CLUE_DIRECTIONS.across;
+
+    return state.setIn(['position', 'dir'], newDirection);
+};
+
+
 const enterCellContent = (state, content) => {
     // Validate content
     if (!_isString(content)) {
@@ -187,24 +169,18 @@ export default function (state = new Map(), action) {
     switch (action.type) {
         case 'INIT_STATE':
             return initPuzzle(state, action.puzzle, action.progress);
-        case 'MOVE_CELL_DIRECTION':
-            return moveCellDirection(state, action.dir);
-        case 'CHANGE_CLUE':
+        case events.MOVE_DIRECTION:
+            return moveCellDirection(state, action.direction);
+        case events.CHANGE_CLUE:
             return changeClue(state, action.clue);
-        case 'CHANGE_POS_ATTRS':
-            return changePosition(state, action.attrs);
-        case 'ENTER_CELL_CONTENT':
+        case events.ENTER_CELL_CONTENT:
             return enterCellContent(state, action.content);
-        case 'DELETE_CELL_CONTENT':
+        case events.DELETE_CELL_CONTENT:
             return deleteCellContent(state);
-
-        // Leftovers from setup app
-        case 'SET_CONNECTION_STATE':
-            return setConnectionState(state, action.state, action.connected);
-        case 'SET_STATE':
-            return resetVote(setState(state, action.state));
-        case 'VOTE':
-            return vote(state, action.entry);
+        case events.TOGGLE_DIRECTION:
+            return toggleDirection(state);
+        case events.CHANGE_POSITION:
+            return changePosition(state, action);
         default:
             return state;
     }

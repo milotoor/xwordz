@@ -44,7 +44,7 @@
                 ":": "before"
             }
         }],
-        "react/jsx-closing-bracket-location": ["error", "after-props"],
+        "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4],
         "react/jsx-no-bind": "off",

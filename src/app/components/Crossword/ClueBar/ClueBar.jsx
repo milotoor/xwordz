@@ -1,8 +1,12 @@
 
+// Libs
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Card } from 'react-mdl';
 
+// Clue bar resources
 import Colors from '../../../../util/colors';
+import { currentClue } from '../accessors';
 import './ClueBar.styl';
 
 
@@ -23,4 +27,8 @@ ClueBar.prototype.propTypes = {
 };
 
 
-export default ClueBar;
+const mapStateToProps = state => ({
+    currentClue: currentClue(state)
+});
+
+export default connect(mapStateToProps)(ClueBar);
