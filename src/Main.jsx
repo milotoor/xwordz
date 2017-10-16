@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import store from './app/store';
-import { Main } from './app/main';
+import App from './app/App.jsx';
 import { setState } from './app/reducers/actions';
 
 import '../vendor/material.light_blue-green.min.css';

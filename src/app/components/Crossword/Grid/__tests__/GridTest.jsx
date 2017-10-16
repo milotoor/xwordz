@@ -1,5 +1,7 @@
 
 import React from 'react';
+
+// TODO: reimplement with enzyme
 import {
     renderIntoDocument,
     scryRenderedDOMComponentsWithClass,
@@ -8,10 +10,10 @@ import {
 
 import { Map, fromJS } from 'immutable';
 import { expect } from 'chai';
-import '../../../../../test/test_helper';
-import initProgress from '../../../reducers/helpers/initProgress';
+import '../../../../../../test/test_helper';
+import initProgress from '../../../../reducers/helpers/initProgress';
 
-import { Grid } from './Grid.jsx';
+import { Grid } from '../Grid.jsx';
 
 
 // Sample 2x2 crossword
@@ -36,10 +38,11 @@ const position = fromJS({
 
 const grid = (
     <Grid
-        puzzle={puzzle}
-        position={position}
-        progress={progress}
-        changePosAttrs={() => {}} />
+      puzzle={puzzle}
+      position={position}
+      progress={progress}
+      changePosAttrs={() => {}}
+    />
 );
 
 describe('Grid', () => {
@@ -57,10 +60,11 @@ describe('Grid', () => {
         let pos;
         const _grid = (
             <Grid
-                puzzle={puzzle}
-                position={position}
-                progress={progress}
-                changePosAttrs={attrs => pos = attrs} />
+              puzzle={puzzle}
+              position={position}
+              progress={progress}
+              changePosAttrs={attrs => pos = attrs}
+            />
         );
 
         const

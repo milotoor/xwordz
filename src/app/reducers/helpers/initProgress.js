@@ -16,25 +16,24 @@ import _isUndefined from 'lodash/isUndefined';
  * @param {array} [progress]
  *   The array of arrays that represents the user's current progress on the puzzle
  */
-export default function initProgress (grid, progress) {
-    if (_isUndefined(progress)) {
-        progress = [];
+export default (grid, progress) => {
+    if (!_isUndefined(progress)) return fromJS(progress);
 
-        // Iterate over the cells of the grid, compiling an array of arrays with each element
-        // initialized to `null`. If the cell is a block cell, it will be initialized to a period
-        // instead.
-        for (const row of grid) {
-            const rowProgress = [];
-            progress.push(rowProgress);
-            for (const cell of row) {
-                if (cell.isBlockCell) {
-                    rowProgress.push('.');
-                } else {
-                    rowProgress.push(null);
-                }
+    // Iterate over the cells of the grid, compiling an array of arrays with each element
+    // initialized to `null`. If the cell is a block cell, it will be initialized to a period
+    // instead.
+    const initialProgress = [];
+    for (const row of grid) {
+        const rowProgress = [];
+        initialProgress.push(rowProgress);
+        for (const cell of row) {
+            if (cell.isBlockCell) {
+                rowProgress.push('.');
+            } else {
+                rowProgress.push(null);
             }
         }
     }
 
-    return fromJS(progress);
-}
+    return fromJS(initialProgress);
+};

@@ -112,7 +112,7 @@ const handleBackspace = (dispatch, getState) => {
     }
 };
 
-
+/* eslint-disable import/prefer-default-export */
 export const handleKeyPress = key => (dispatch, getState) => {
     if (isArrowPress(key)) {
         handleArrowPress(key, dispatch, getState);

@@ -8,9 +8,9 @@ import {
 
 import { expect } from 'chai';
 
-import Colors from '../../../../util/colors';
-import { orderedClueMap } from '../../../reducers/helpers/initPuzzle';
-import ClueList from './ClueList.jsx';
+import Colors from '../../../../../util/colors';
+import { orderedClueMap } from '../../../../reducers/helpers/initPuzzle';
+import ClueDirectory from '../ClueDirectory';
 
 
 // Test data
@@ -28,15 +28,16 @@ const currentClue = {
 
 // Test component
 const clueList = (
-    <ClueList
-        clues={clues}
-        direction="down"
-        currentClue={currentClue}
-        onClueClick={() => {}} />
+    <ClueDirectory
+      clues={clues}
+      direction="down"
+      currentClue={currentClue}
+      onClueClick={() => {}}
+    />
 );
 
 
-describe('ClueList', () => {
+describe('ClueDirectory', () => {
     it('renders all of the clues in order', () => {
         const
             component = renderIntoDocument(clueList),
@@ -63,11 +64,12 @@ describe('ClueList', () => {
         // Make a different component for this test, so as to provide a meaningful `onClueClick`
         let registeredClickCount = 0;
         const _clueList = (
-            <ClueList
-                clues={clues}
-                direction="down"
-                currentClue={currentClue}
-                onClueClick={() => registeredClickCount++} />
+            <ClueDirectory
+              clues={clues}
+              direction="down"
+              currentClue={currentClue}
+              onClueClick={() => registeredClickCount++}
+            />
         );
 
         const
@@ -93,11 +95,12 @@ describe('ClueList', () => {
         // Make a different component for this test, so as to provide a meaningful `onClueClick`
         let registeredClickCount = 0;
         const _clueList = (
-            <ClueList
-                clues={clues}
-                direction="down"
-                currentClue={_currentClue}
-                onClueClick={() => registeredClickCount++} />
+            <ClueDirectory
+              clues={clues}
+              direction="down"
+              currentClue={_currentClue}
+              onClueClick={() => registeredClickCount++}
+            />
         );
 
         const

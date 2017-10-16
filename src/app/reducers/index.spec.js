@@ -8,18 +8,16 @@ import * as actions from './actions';
 
 import reducer, { Helpers as reducerHelpers } from '.';
 
-describe('reducer', function () {
-    // Set up an initial state that can be re-used by the tests
-    before(() => {
-        this.initialState = new Map({
-            puzzle  : reducerHelpers.initPuzzle(puzzleJSON),
-            progress: reducerHelpers.initProgress(puzzleJSON.grid),
-            position: new Map({
-                row: 0,
-                col: 0,
-                dir: 'across'
-            })
-        });
+describe('reducer', () => {
+    // An initial state that can be re-used by the tests
+    const initialState = new Map({
+        puzzle  : reducerHelpers.initPuzzle(puzzleJSON),
+        progress: reducerHelpers.initProgress(puzzleJSON.grid),
+        position: new Map({
+            row: 0,
+            col: 0,
+            dir: 'across'
+        })
     });
 
     it('handles INIT_STATE', () => {
@@ -32,7 +30,7 @@ describe('reducer', function () {
         // by the reducer, so we're essentially just testing that the reducer calls those functions
         // correctly. That's okay, but then we need to have tests for the helpers themselves, which
         // we do not at this time.
-        expect(nextState).to.equal(this.initialState, 'INIT_STATE action does not update state correctly');
+        expect(nextState).to.equal(initialState, 'INIT_STATE action does not update state correctly');
         assert.isOk(nextState.getIn(['puzzle', 'clues', 'across', 1]), 'Numeric clue does not exist');
         assert.isNotOk(nextState.getIn(['puzzle', 'clues', 'across', '1']), 'String clue exists');
     });
@@ -48,14 +46,14 @@ describe('reducer', function () {
         };
 
         // Moving down/right should work fine
-        let nextState = reducer(this.initialState, actionDown);
+        let nextState = reducer(initialState, actionDown);
         expect(nextState.get('position')).to.equal(fromJS({
             row: 1,
             col: 0,
             dir: 'across'
         }));
 
-        nextState = reducer(this.initialState, actionRight);
+        nextState = reducer(initialState, actionRight);
         expect(nextState.get('position')).to.equal(fromJS({
             row: 0,
             col: 1,
@@ -63,14 +61,14 @@ describe('reducer', function () {
         }));
 
         // Moving up/left should not change the state (out of bounds)
-        nextState = reducer(this.initialState, actionUp);
+        nextState = reducer(initialState, actionUp);
         expect(nextState.get('position')).to.equal(fromJS({
             row: 0,
             col: 0,
             dir: 'across'
         }));
 
-        nextState = reducer(this.initialState, actionLeft);
+        nextState = reducer(initialState, actionLeft);
         expect(nextState.get('position')).to.equal(fromJS({
             row: 0,
             col: 0,
@@ -78,7 +76,7 @@ describe('reducer', function () {
         }));
 
         // Providing a nonsense direction should not change the state
-        nextState = reducer(this.initialState, actionDumb);
+        nextState = reducer(initialState, actionDumb);
         expect(nextState.get('position')).to.equal(fromJS({
             row: 0,
             col: 0,
@@ -87,26 +85,26 @@ describe('reducer', function () {
     });
 
     it('handles MOVE_CELL_DIRECTION across blocks', () => {
-        let initialState = this.initialState
+        let startState = initialState
             .setIn(['position', 'row'], 5)
             .setIn(['position', 'dir'], 'down');
 
         // Moving down should jump to row 9
-        let nextState = reducer(initialState, actions.moveCellDown());
+        let nextState = reducer(startState, actions.moveCellDown());
         expect(nextState.get('position')).to.equal(fromJS({
             row: 9,
             col: 0,
             dir: 'down'
         }));
 
-        initialState = initialState.set('position', fromJS({
+        startState = initialState.set('position', fromJS({
             row: 1,
             col: 11,
             dir: 'down'
         }));
 
         // Moving left should jump to col 8
-        nextState = reducer(initialState, actions.moveCellLeft());
+        nextState = reducer(startState, actions.moveCellLeft());
         expect(nextState.get('position')).to.equal(fromJS({
             row: 1,
             col: 8,
@@ -123,7 +121,7 @@ describe('reducer', function () {
             }
         };
 
-        let nextState = reducer(this.initialState, action);
+        let nextState = reducer(initialState, action);
         expect(nextState.get('position')).to.equal(new Map({
             row: 0,
             col: 11,
@@ -161,7 +159,7 @@ describe('reducer', function () {
             }
         };
 
-        let nextState = reducer(this.initialState, action);
+        let nextState = reducer(initialState, action);
         expect(nextState.get('position')).to.equal(new Map({
             row: 0,
             col: 0,
@@ -185,7 +183,7 @@ describe('reducer', function () {
     it('handles ENTER_CONTENT by updating the progress List', () => {
         const
             action = actions.enterCellContent('a'),
-            nextState = reducer(this.initialState, action);
+            nextState = reducer(initialState, action);
 
         // The position should move, and additionally the progress should have been updated
         expect(nextState.getIn(['progress', 0, 0])).to.equal('A');

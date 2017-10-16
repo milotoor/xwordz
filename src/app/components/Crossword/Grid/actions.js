@@ -2,13 +2,13 @@
 import * as events from '../../../reducers/events';
 import { getCellState, isCurrentCell } from './accessors';
 
-
+/* eslint-disable import/prefer-default-export */
 export const clickCell = (row, col) => {
     const cellState = getCellState(row, col);
 
     // If it's a block cell then a click does nothing
     if (cellState.isBlockCell) {
-        return;
+        return null;
     }
 
     if (isCurrentCell(row, col)) {
