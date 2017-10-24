@@ -1,11 +1,11 @@
 
 // Libs
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
 // App resources
-import Colors from '../../../../util/colors';
 import { currentClue } from '../accessors';
 import { getCellState, isCurrentCell } from './accessors';
 import { clickCell } from './actions';
@@ -37,9 +37,9 @@ class Cell extends Component {
             cellContent = isBlockCell ? nbsp : (entry || nbsp);
 
         const cellClasses = classNames('cell-content', {
-            block              : isBlockCell,
-            [Colors.primary500]: isCurrentCell,
-            [Colors.primary100]: !isCurrentCell && inCurrentClue
+            'block'                   : isBlockCell,
+            'mdc-theme--primary'      : isCurrentCell,
+            'mdc-theme--primary-light': !isCurrentCell && inCurrentClue
         });
 
         return (

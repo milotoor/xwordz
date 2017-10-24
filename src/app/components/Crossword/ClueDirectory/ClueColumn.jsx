@@ -1,12 +1,15 @@
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { List, ListItem } from 'react-mdl';
 import classNames from 'classnames';
 
-import Colors from '../../../../util/colors';
-import { changeClue } from './actions';
+// App resources
+import { List, ListItem } from 'mdc';
+
+// Clue column resources
 import { currentClue } from '../accessors';
+import { changeClue } from './actions';
 
 
 const mapStateToClueProps = (state, ownProps) => {
@@ -14,7 +17,7 @@ const mapStateToClueProps = (state, ownProps) => {
     return {
         isCurrentClue:
             ownProps.direction === curClue.direction &&
-            ownProps.number    === curClue.number
+            ownProps.number === curClue.number
     };
 };
 
@@ -31,7 +34,7 @@ const Clue = connect(mapStateToClueProps, { changeClue })(
         render () {
             const { number, text, isCurrentClue } = this.props;
             const clueClasses = classNames('clue', {
-                [Colors.accent200]: isCurrentClue
+                'mdc-theme--secondary-light': isCurrentClue
             });
 
             return (
@@ -63,20 +66,20 @@ export class ClueColumn extends Component {
 
         return (
             <div className="clue-column">
-                <div className={`clue-column-header ${Colors.primary500}`}>
+                <div className="clue-column-header mdc-theme--primary">
                     {direction.toUpperCase()}
                 </div>
 
                 <div className="clue-list-wrapper">
                     <List className="clue-list">
-                        {clues.entrySeq().map(([number, text]) =>
+                        {clues.entrySeq().map(([number, text]) => (
                             <Clue
-                                key={number}
-                                number={number}
-                                text={text}
-                                direction={direction}
+                              key={number}
+                              number={number}
+                              text={text}
+                              direction={direction}
                             />
-                        )}
+                        ))}
                     </List>
                 </div>
             </div>
