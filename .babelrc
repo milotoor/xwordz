@@ -11,7 +11,6 @@
     "env": {
         "test": {
             "plugins": [
-                "istanbul",
                 ["transform-runtime", {
                     "helpers": true,
                     "polyfill": true,
