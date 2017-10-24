@@ -6,7 +6,13 @@
         "transform-decorators-legacy",
         "transform-object-assign",
         "transform-object-rest-spread",
-        "transform-regenerator"
+        "transform-regenerator",
+        ["module-resolver", {
+            "root": ["./src"],
+            "alias": {
+                "mdc": "./src/lib/mdc"
+            }
+        }]
     ],
     "env": {
         "test": {

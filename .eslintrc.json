@@ -17,9 +17,7 @@
             "SwitchCase": 1
         }],
         "jsx-a11y/no-static-element-interactions": "off",
-        "key-spacing": ["error", {
-            "align": "colon"
-        }],
+        "key-spacing": "off",
         "no-confusing-arrow": "off",
         "no-constant-condition": ["error", {
             "checkLoops": false
