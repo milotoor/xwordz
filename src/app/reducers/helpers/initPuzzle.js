@@ -15,7 +15,7 @@ export const orderedClueMap = (clueList) => {
     const orderedClues = _map(clueList, (clueText, clueNum) => [parseInt(clueNum, 10), clueText]);
 
     // ...then sort them numerically ascending.
-    orderedClues.sort((numA, numB) => numA < numB ? -1 : 1);
+    orderedClues.sort((setA, setB) => setA[0] < setB[0] ? -1 : 1);
 
     return new OrderedMap(orderedClues);
 };
