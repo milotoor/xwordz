@@ -3,7 +3,9 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import { handleKeyPress } from './actions';
-import { Grid, ClueBar, ClueDirectory } from '.';
+import Grid from './Grid';
+import ClueBar from './ClueBar';
+import ClueDirectory from './ClueDirectory';
 import './Crossword.styl';
 
 

@@ -5,31 +5,42 @@
         "browser": true,
         "mocha": true
     },
-    "extends": [
-        "xo/esnext",
-        "xo-react"
-    ],
+    "extends": ["airbnb"],
+    "plugins": ["jest"],
     "rules": {
-        "arrow-parens": ["error", "as-needed", {
-            "requireForBlockBody": true
-        }],
+        "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
+        "comma-dangle": ["error", "never"],
+        "import/extensions": ["error", "never", { "json": "always" }],
+        "import/no-extraneous-dependencies": "off",
+        "import/no-unresolved": ["error", { "ignore": ["frontend"] }],
         "indent": ["error", 4, {
             "SwitchCase": 1
         }],
-        "key-spacing": ["error", {
-            "align": "colon"
-        }],
+        "jsx-a11y/no-static-element-interactions": "off",
+        "key-spacing": "off",
+        "no-confusing-arrow": "off",
         "no-constant-condition": ["error", {
             "checkLoops": false
         }],
         "no-debugger": "warn",
-        "no-multi-spaces": "off",
+        "no-multi-assign": "off",
+        "no-multi-spaces": ["error", {
+            "exceptions": {
+                "AssignmentExpression": true,
+                "VariableDeclarator": true,
+                "ClassProperty": true,
+                "CallExpression": true
+            }
+        }],
         "no-multiple-empty-lines": ["error", {
             "max"    : 2,
             "maxEOF" : 1,
             "maxBOF" : 1
         }],
+        "no-plusplus": "off",
+        "no-restricted-syntax": "off",
         "no-return-assign": 0,
+        "no-shadow": "off",
         "no-unused-expressions": ["error", {
             "allowShortCircuit": true
         }],
@@ -38,17 +49,22 @@
             "objectsInObjects" : false
         }],
         "one-var": "off",
+        "one-var-declaration-per-line": ["warn", "initializations"],
         "operator-linebreak": ["error", "after", {
             "overrides": {
                 "?": "before",
                 ":": "before"
             }
         }],
+        "quote-props": ["error", "consistent-as-needed", { "keywords": true }],
         "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
         "react/jsx-indent": ["error", 4],
-        "react/jsx-indent-props": ["error", 4],
+        "react/jsx-indent-props": ["error", 2],
+        "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
         "react/jsx-no-bind": "off",
-        "react/jsx-space-before-closing": ["error", "always"],
+        "react/no-unescaped-entities": "off",
+        "react/no-multi-comp": "off",
+        "react/prop-types": "off",
         "space-before-function-paren": ["error", "always"]
     }
 }

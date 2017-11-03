@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { render } from 'react-dom';
+
+// TODO: Re-implement with enzyme
 import {
     renderIntoDocument,
     scryRenderedDOMComponentsWithClass,
@@ -12,8 +14,8 @@ import { Map, fromJS } from 'immutable';
 import { expect } from 'chai';
 import _extend from 'lodash/extend';
 
-import Colors from '../../../../util/colors';
-import Cell from './Cell.jsx';
+import Colors from '../../../../../util/colors';
+import Cell from '../Cell';
 
 
 describe('Cell', function () {

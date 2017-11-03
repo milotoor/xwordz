@@ -1,71 +1,75 @@
 const webpack = require('webpack');
-const conf = require('./gulp.conf');
 const path = require('path');
+const rupture = require('rupture');
+const conf = require('./gulp.conf');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const autoprefixer = require('autoprefixer');
 
 
 module.exports = {
     module: {
-        preLoaders: [
-            {
-                test: /\.jsx?$/,
-                exclude: [/node_modules/, RegExp(conf.paths.vendor)],
-                loader: 'eslint'
-            }
-        ],
-
-        loaders: [
+        rules: [
             {
                 test: /.json$/,
+                loader: 'json-loader'
+            },
+            {
+                test: /\.css$/,
                 loaders: [
-                    'json'
+                    'style-loader',
+                    { loader: 'css-loader', options: { importLoaders: 1 }},
+                    'postcss-loader'
                 ]
             },
             {
-                test: /\.(css)$/,
+                test: /\.styl$/,
                 loaders: [
-                    'style',
-                    'css'
-                ]
-            },
-            {
-                test: /\.(styl)$/,
-                loaders: [
-                    'style',
-                    'css',
-                    'stylus?paths=node_modules'
+                    'style-loader',
+                    'css-loader',
+                    { loader: 'postcss-loader', options: { sourceMap: true }},
+                    { loader: 'stylus-loader', options: { use: [rupture()] }}
                 ]
             },
             {
                 test: /\.jsx?$/,
-                exclude: [/node_modules/, RegExp(conf.paths.vendor)],
+                exclude: [/node_modules/, new RegExp(conf.paths.vendor)],
+                loader: 'babel-loader'
+            },
+            {
+                test: /\.scss$/,
                 loaders: [
-                    'babel'
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            includePaths: ['node_modules']
+                        }
+                    }
                 ]
             }
         ]
     },
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.NoErrorsPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({
             template: conf.path.src('index.html')
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
-    postcss: () => [autoprefixer],
-    debug: true,
     devtool: 'source-map',
     output: {
         path: path.join(process.cwd(), conf.paths.tmp),
         filename: 'index.js'
     },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     entry: [
         'webpack/hot/dev-server',
         'webpack-hot-middleware/client',
         'babel-polyfill',
-        `./${conf.path.src('index')}`
+        `./${conf.path.src('Main.jsx')}`
     ]
 };

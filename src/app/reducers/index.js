@@ -10,17 +10,15 @@ import * as events from './events';
 import * as Helpers from './helpers';
 
 
-const initPuzzle = (state, puzzle, progress) => {
-    return new Map({
-        puzzle  : Helpers.initPuzzle(puzzle),
-        progress: Helpers.initProgress(puzzle.grid, progress),
-        position: new Map({
-            row: 0,
-            col: 0,
-            dir: CLUE_DIRECTIONS.across
-        })
-    });
-};
+const initPuzzle = (state, puzzle, progress) => new Map({
+    puzzle  : Helpers.initPuzzle(puzzle),
+    progress: Helpers.initProgress(puzzle.grid, progress),
+    position: new Map({
+        row: 0,
+        col: 0,
+        dir: CLUE_DIRECTIONS.across
+    })
+});
 
 
 const moveCellDirection = (state, direction) => {
@@ -69,18 +67,17 @@ const moveCellDirection = (state, direction) => {
             return state;
         }
 
-        // If it's a block, keep moving
-        if (grid.getIn([newRow, newCol, 'isBlockCell'])) {
-            op();
-            continue;
+        // If it's not a block, update the state
+        if (!grid.getIn([newRow, newCol, 'isBlockCell'])) {
+            return state.set('position', new Map({
+                row: newRow,
+                col: newCol,
+                dir: position.get('dir')
+            }));
         }
 
-        // Valid move, update the state
-        return state.set('position', new Map({
-            row: newRow,
-            col: newCol,
-            dir: position.get('dir')
-        }));
+        // Otherwise keep moving
+        op();
     }
 };
 

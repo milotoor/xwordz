@@ -11,29 +11,25 @@ import _map from 'lodash/map';
  * provided. This is mandatory for properly rendering the ClueDirectory
  */
 export const orderedClueMap = (clueList) => {
-    const orderedClues =
-        // Transform the clue numbers from strings to integers...
-        _map(clueList, (clueText, clueNum) => [parseInt(clueNum, 10), clueText])
+    // Transform the clue numbers from strings to integers...
+    const orderedClues = _map(clueList, (clueText, clueNum) => [parseInt(clueNum, 10), clueText]);
 
-        // ...then sort them numerically ascending.
-        .sort((numA, numB) => numA < numB ? -1 : 1);
+    // ...then sort them numerically ascending.
+    orderedClues.sort((setA, setB) => setA[0] < setB[0] ? -1 : 1);
 
     return new OrderedMap(orderedClues);
 };
 
 
-export default function initPuzzle (puzzle) {
-    // Iterate through the across and down clues, replacing the string keys with numeric equivalents
-    const clues = puzzle.clues;
+/**
+ * Iterates through the across and down clues, creating ordered maps of them
+ */
+export default ({ clues, grid, info }) => new Map({
+    clues: new Map({
+        across: orderedClueMap(clues.across),
+        down  : orderedClueMap(clues.down)
+    }),
 
-    return new Map({
-        // Rebuild the clues
-        clues: new Map({
-            across: orderedClueMap(clues.across),
-            down  : orderedClueMap(clues.down)
-        }),
-
-        grid: fromJS(puzzle.grid),
-        info: fromJS(puzzle.info)
-    });
-}
+    grid: fromJS(grid),
+    info: fromJS(info)
+});

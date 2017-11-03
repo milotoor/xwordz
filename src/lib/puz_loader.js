@@ -7,9 +7,9 @@ const fs = require('fs');
 const process = require('process');
 const path = require('path');
 
-const winston = require('winston')
+const winston = require('winston');
 const xpuz = require('xpuz');
-const serverPaths = require(process.cwd() + '/conf/server.conf.js').paths;
+const serverPaths = require('../../conf/server.conf.js').paths;
 
 /**
  * Generic puzzle loader. This is totally agnostic of the input puzzle's file format. All file type-
@@ -29,7 +29,7 @@ class PuzzleLoader {
         this.confirmFileExists();
 
         const parsedContent = this.parse();
-        this.writeFile(parsedContent);
+        PuzzleLoader.writeFile(parsedContent);
     }
 
     /**
@@ -45,13 +45,15 @@ class PuzzleLoader {
         }
     }
 
+    /* eslint-disable class-methods-use-this */
     parse () {
         throw Error('Puzzle file parsing is implementation specific!');
     }
+    /* eslint-enable class-methods-use-this */
 
-    writeFile (puzInfo) {
+    static writeFile (puzInfo) {
         const puzPath = path.join(serverPaths.puzzles, puzInfo.info.title);
-        fs.writeFile(puzPath, JSON.stringify(puzInfo, null, 4), { flag: 'wx' }, function (err) {
+        fs.writeFile(puzPath, JSON.stringify(puzInfo, null, 4), { flag: 'wx' }, (err) => {
             if (err) throw err;
             console.log(`Saved puzzle ${puzInfo.info.title} to ${puzPath}`);
         });
@@ -65,7 +67,7 @@ class PuzzleLoader {
 class PuzLoader extends PuzzleLoader {
     parse () {
         const
-            puzLoader = new xpuz.Parsers.PUZ,
+            puzLoader = new xpuz.Parsers.PUZ(),
             puzParsed = puzLoader.parse(this.inputFilePath),
             puzInfo   = puzParsed.inspect().value;
 

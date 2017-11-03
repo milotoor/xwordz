@@ -1,25 +1,29 @@
 
-$mdl-grey-300 = rgb(224, 224, 224)
+@import '../../../styles/colors'
 
 #clue-directory
     flex-direction row
     height 565px
+    width 400px
 
     .clue-column
         width 50%
+        display flex
+        flex-direction column
 
         .clue-column-header
             text-align center
             padding-top 15px
             height 50px
             box-sizing border-box
+            flex-shrink 0
 
         &:first-child
             border-right 1px solid grey
 
         .clue-list-wrapper
-            height 100%
-            overflow-y scroll
+            flex-grow 1
+            overflow-y auto
 
         .clue-list
             margin 0
@@ -29,9 +33,12 @@ $mdl-grey-300 = rgb(224, 224, 224)
                 align-items center
                 font-size 12px
                 padding 5px 10px
+                cursor pointer
+                height auto
+                min-height 48px
 
                 &:hover
-                    background-color $mdl-grey-300
+                    background-color $md-grey-300
 
                 .clue-content
                     display flex
