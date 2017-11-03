@@ -16,7 +16,7 @@ const ClueBar = ({ currentClue }) => {
     const dirLetter = currentClue.direction[0].toUpperCase();
 
     return (
-        <Card id="clue-bar" shadow={3} className="mdc-theme--primary">
+        <Card id="clue-bar" className="mdc-theme--primary-dark-bg" raised>
             <span id="clue-bar-number">{currentClue.number}{dirLetter}</span>
             <span id="clue-bar-clue">{currentClue.text}</span>
         </Card>

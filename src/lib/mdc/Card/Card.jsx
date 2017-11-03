@@ -1,27 +1,30 @@
 
 // Libs
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+// MDC resources
+import { shadow } from '../utils';
 
-const Card = ({ className, children, ...rest }) => {
-    const classes = classNames('mdc-card', className);
-    return (
-        <div className={classes} {...rest}>
-            {children}
-        </div>
-    );
-};
 
-Card.propTypes = {
-    className: PropTypes.string,
-    children : PropTypes.node
-};
+@shadow({ usual: 2, raised: 8 })
+export default class Card extends PureComponent {
+    static propTypes = {
+        className: PropTypes.string
+    };
 
-Card.defaultProps = {
-    className: null,
-    children : null
-};
+    static defaultProps = {
+        className: null
+    };
 
-export default Card;
+    render () {
+        const { className, children, ...rest } = this.props;
+        const classes = classNames('mdc-card', className);
+        return (
+            <div className={classes} {...rest}>
+                {children}
+            </div>
+        );
+    }
+}

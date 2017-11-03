@@ -37,9 +37,9 @@ class Cell extends Component {
             cellContent = isBlockCell ? nbsp : (entry || nbsp);
 
         const cellClasses = classNames('cell-content', {
-            'block'                   : isBlockCell,
-            'mdc-theme--primary'      : isCurrentCell,
-            'mdc-theme--primary-light': !isCurrentCell && inCurrentClue
+            'block'                      : isBlockCell,
+            'mdc-theme--primary-bg'      : isCurrentCell,
+            'mdc-theme--primary-light-bg': !isCurrentCell && inCurrentClue
         });
 
         return (

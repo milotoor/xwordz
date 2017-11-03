@@ -1,45 +1,44 @@
 
-@import 'rupture/rupture'
-
-board-dimensions(n)
+board-sizing(n)
     height n
     width n
 
+board-dimensions(n)
+    grid-template-rows repeat(n, 1fr)
+    grid-template-columns repeat(n, 1fr)
+
+    .board-row
+        grid-column-start 1
+        grid-column-end n + 1
+        display grid
+        grid-template-columns repeat(n, 1fr)
+
 #board
-    board-dimensions 500px
-    cursor default
-    border-collapse collapse
-    box-sizing border-box
-    display table
+    board-sizing 500px
+    display grid
+    board-dimensions 15
+
+    &.sunday
+        board-dimensions 21
+
     user-select none
+    cursor default
 
     // Changes the board size when the window size is less than 900px
     +below(900px)
         &
-            board-dimensions 400px
+            board-sizing 400px
 
     .board-row
-        margin 0
-        padding 0
-        display table-row
-
         .board-cell
-            width 31px
-            height 31px
             font-size 18px
-            margin 0
-            text-align center
             border 1px solid black
-            display table-cell
 
             &:first-child
                 border-left none
 
             &:last-child
                 border-right none
-
-            &.answer-start
-                background-color #ddd
 
         &:first-child
             .board-cell
@@ -59,13 +58,9 @@ board-dimensions(n)
             &.block
                 background-color black
 
-            &.selected
-                background-color red
-
             .clue-number
                 position absolute
                 font-size 9px
                 line-height 100%
-                top 0
-                left 0
-                padding 5% 5% 0
+                top 5%
+                left 5%

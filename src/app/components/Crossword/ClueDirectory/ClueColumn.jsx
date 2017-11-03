@@ -21,41 +21,45 @@ const mapStateToClueProps = (state, ownProps) => {
     };
 };
 
-const Clue = connect(mapStateToClueProps, { changeClue })(
-    class Clue extends Component {
-        static propTypes = {
-            number       : PropTypes.number.isRequired,
-            direction    : PropTypes.string.isRequired,
-            changeClue   : PropTypes.func.isRequired,
-            isCurrentClue: PropTypes.bool.isRequired,
-            text         : PropTypes.string.isRequired
-        };
+@connect(mapStateToClueProps, { changeClue })
+class Clue extends Component {
+    static propTypes = {
+        number       : PropTypes.number.isRequired,
+        direction    : PropTypes.string.isRequired,
+        changeClue   : PropTypes.func.isRequired,
+        isCurrentClue: PropTypes.bool.isRequired,
+        text         : PropTypes.string.isRequired
+    };
 
-        render () {
-            const { number, text, isCurrentClue } = this.props;
-            const clueClasses = classNames('clue', {
-                'mdc-theme--secondary-light': isCurrentClue
-            });
+    handleClick = () => {
+        const { number, direction, changeClue } = this.props;
+        changeClue(direction, number);
+    };
 
-            return (
-                <ListItem className={clueClasses} onClick={this.handleClick}>
-                    <div className="clue-content">
-                        <span className="clue-list-number">{number}.</span>
-                        <span className="clue-list-text">{text}</span>
-                    </div>
-                </ListItem>
-            );
-        }
+    render () {
+        const { number, text, isCurrentClue } = this.props;
+        const clueClasses = classNames('clue', {
+            'mdc-theme--secondary-bg': isCurrentClue
+        });
 
-        handleClick = () => {
-            const { number, direction, changeClue } = this.props;
-            changeClue(direction, number);
-        }
+        return (
+            <ListItem className={clueClasses} onClick={this.handleClick}>
+                <div className="clue-content">
+                    <span className="clue-list-number">{number}.</span>
+                    <span className="clue-list-text">{text}</span>
+                </div>
+            </ListItem>
+        );
     }
-);
+}
 
 
-export class ClueColumn extends Component {
+const mapStateToProps = (state, ownProps) => ({
+    clues: state.getIn(['puzzle', 'clues', ownProps.direction])
+});
+
+@connect(mapStateToProps)
+export default class ClueColumn extends Component {
     static propTypes = {
         clues    : PropTypes.object.isRequired,
         direction: PropTypes.string.isRequired
@@ -66,7 +70,7 @@ export class ClueColumn extends Component {
 
         return (
             <div className="clue-column">
-                <div className="clue-column-header mdc-theme--primary">
+                <div className="clue-column-header mdc-theme--primary-bg">
                     {direction.toUpperCase()}
                 </div>
 
@@ -86,10 +90,3 @@ export class ClueColumn extends Component {
         );
     }
 }
-
-
-const mapStateToProps = (state, ownProps) => ({
-    clues: state.getIn(['puzzle', 'clues', ownProps.direction])
-});
-
-export default connect(mapStateToProps)(ClueColumn);
