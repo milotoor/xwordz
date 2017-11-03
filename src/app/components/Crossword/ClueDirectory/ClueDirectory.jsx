@@ -7,7 +7,7 @@ import './ClueDirectory.styl';
 
 
 export default () => (
-    <Card id="clue-directory" shadow={3}>
+    <Card id="clue-directory">
         <ClueColumn direction="across" />
         <ClueColumn direction="down" />
     </Card>
